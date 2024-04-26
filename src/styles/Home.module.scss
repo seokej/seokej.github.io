@@ -1,0 +1,41 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  min-height: 100vh;
+  color: white;
+  background-color: black;
+}
+
+.title {
+  font-size: 8vw;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .subtitle_img {
+    margin-top: 10px;
+    max-width: 26px;
+    animation: blink 1.5s ease infinite;
+    -webkit-animation: blink 1.5s ease infinite;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
