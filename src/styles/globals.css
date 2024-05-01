@@ -1,9 +1,6 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -98,6 +95,83 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input,
+button,
+textarea,
+select {
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+
+/* 말줄임 관련 코드 */
+.lineClamp4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 모달 dim처리 코드 */
+.dim {
+  position: fixed;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+/* 접근성 관련 코드 */
+#accessibility {
+  position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+#accessibility a {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 100%;
+  height: 1px;
+  margin-bottom: -1px;
+  background: #f2f2f2;
+  font-size: 0;
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+}
+
+#accessibility a:hover, 
+#accessibility a:focus, 
+#accessibility a:active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3px;
+  height: 25px;
+  font-size: 15px;
+  outline-offset: -3px;
+}
+
+.blind {
+  position: absolute;
+  left: -999px;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  line-height: 999px;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
