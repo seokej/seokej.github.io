@@ -55,7 +55,6 @@ const SdfServiceComponent = () => {
           </li>
           <li className={styles.serviceListWrap__list}>
             <a href="#" className={styles.serviceListWrap__listItem}>
-              {/* <img src="/images/sdf/ico/ico_s09.png" alt="오시는길" /> */}
               <div className={styles.serviceListWrap_itemText}>오시는길</div>
             </a>
           </li>

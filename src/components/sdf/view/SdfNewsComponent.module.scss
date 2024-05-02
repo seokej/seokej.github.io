@@ -10,6 +10,10 @@
 
     .h1 {
       font-size: 40px;
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
     }
 
     .infoListWrap {
@@ -20,6 +24,10 @@
 
       .infoListWrap__list + .infoListWrap__list {
         border-left: solid 1px #ccc;
+
+        @media (max-width: 768px) {
+          border-left: none;
+        }
       }
 
       .infoListWrap__listBtn {
@@ -28,6 +36,11 @@
         font-size: 22px;
         font-weight: 500;
         color: #888888;
+
+        @media (max-width: 768px) {
+          padding: 0 10px;
+          font-size: 20px;
+        }
       }
 
       .infoListWrap__listBtn__active {
@@ -36,6 +49,11 @@
         font-size: 22px;
         font-weight: 500;
         color: #134796;
+
+        @media (max-width: 768px) {
+          padding: 0 10px;
+          font-size: 20px;
+        }
       }
     }
 
@@ -46,6 +64,10 @@
     .swiperWrap {
       position: relative;
       z-index: 1;
+
+      @media (max-width: 1300px) {
+        padding: 0px 60px;
+      }
 
       .infoSlideWrap {
         display: flex;
@@ -59,6 +81,10 @@
         transition: 0.3s all;
         cursor: pointer;
 
+        @media (max-width: 768px) {
+          height: 270px;
+        }
+
         &:hover {
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
         }
@@ -70,6 +96,11 @@
           color: #000;
           letter-spacing: -1px;
           word-break: keep-all;
+
+          @media (max-width: 768px) {
+            margin-top: 20px;
+            font-size: 16px;
+          }
         }
 
         .infoSlideWrap__itemDate {
@@ -101,6 +132,13 @@
           #f5f5f5;
         transform: translateY(-50%);
         z-index: 2;
+
+        @media (max-width: 1300px) {
+          left: 10px;
+          width: 40px;
+          height: 40px;
+          background-size: 50%;
+        }
       }
 
       .nextBtn {
@@ -114,6 +152,13 @@
           #f5f5f5;
         transform: translateY(-50%);
         z-index: 2;
+
+        @media (max-width: 1300px) {
+          right: 10px;
+          width: 40px;
+          height: 40px;
+          background-size: 50%;
+        }
       }
     }
   }

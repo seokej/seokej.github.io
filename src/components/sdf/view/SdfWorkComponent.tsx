@@ -35,7 +35,11 @@ const SdfWorkComponent = () => {
 
               <div className={styles.workInner__descLink}>
                 <div>자세히 보기</div>
-                <img src="/images/sdf/ico/ico_arrow.png" alt="자세히보기" />
+                <img
+                  className={styles.workInner__descLinkImg}
+                  src="/images/sdf/ico/ico_arrow.png"
+                  alt="자세히보기"
+                />
               </div>
             </a>
           </div>

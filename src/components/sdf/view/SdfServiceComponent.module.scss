@@ -9,6 +9,10 @@
 
     .h1 {
       font-size: 40px;
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
     }
 
     .serviceListWrap {
@@ -17,6 +21,10 @@
       grid-template-columns: repeat(9, minmax(0, 1fr));
       margin-top: 40px;
       overflow: hidden;
+
+      @media (max-width: 1180px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
 
       .serviceListWrap__list {
         padding: 0px 5px;

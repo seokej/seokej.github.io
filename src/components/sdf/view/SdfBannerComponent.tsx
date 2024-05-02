@@ -56,7 +56,7 @@ const SdfBannerComponent = () => {
     <div className={styles.bannerWrap}>
       <div className={styles.bannerInner}>
         <div className={styles.banner__sns}>
-          <div>
+          <div className={styles.banner__snsImg}>
             <img
               src="/images/sdf/banner/img_title01.png"
               alt="서울디지털재단SNS"
@@ -112,7 +112,7 @@ const SdfBannerComponent = () => {
               nextEl: "#bannerSwiperArrowNext",
             }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
-            spaceBetween={50}
+            spaceBetween={30}
             slidesPerView={1}
             onActiveIndexChange={(swiper: any) => {
               handleIndex(swiper.realIndex);

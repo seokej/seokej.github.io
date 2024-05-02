@@ -24,17 +24,20 @@ export const getSdfNews = async () => {
   const NewsData: SlideNewsItemType[] = [];
 
   /**
+   * 그냥 res.data를 반환해도 되지만
+   * Object.keys ~ forEach문을 통해
+   * NewsData의 빈배열에 push,
    * type을 통해 한번 더 data 확인
    * type에 맞는 data가 안들어갈 경우 오류 검출
    */
-  for (const key in res.data) {
+  Object.keys(res.data).forEach((key) => {
     NewsData.push({
       type: res.data[key].type,
       title: res.data[key].title,
       date: res.data[key].date,
       img: res.data[key].img,
     });
-  }
+  });
 
   return NewsData;
 };
@@ -115,8 +118,18 @@ const SdfInfoComponent = () => {
               prevEl: "#newsSwiperArrowPrev",
               nextEl: "#newsSwiperArrowNext",
             }}
-            spaceBetween={20}
-            slidesPerView={4}
+            slidesPerView={1}
+            spaceBetween={40}
+            breakpoints={{
+              1300: {
+                slidesPerView: 4, //브라우저가 768보다 클 때
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3, //브라우저가 1024보다 클 때
+                spaceBetween: 20,
+              },
+            }}
             onSwiper={(e) => {
               setSwiper(e);
             }}
