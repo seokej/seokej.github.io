@@ -24,11 +24,6 @@ const SdfMoHeaderComponent = (props: SdfMoHeaderProps) => {
     });
   };
 
-  /**
-   * Data parsing
-   *
-   */
-
   return (
     <div className={styles.m__gnbMenuBottom}>
       <ul>
