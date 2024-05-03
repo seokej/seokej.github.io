@@ -131,7 +131,9 @@ export default function Home() {
       <section id="works" className={styles.project_wrap}>
         <div className={styles.project_wrap_title}>
           PROJECT
-          <div className={styles.project_wrap_subtitle}>(모두 기여도 100%)</div>
+          <div className={styles.project_wrap_subtitle}>
+            (기여도가 적히지 않은 작업물들은 모두 기여도 100%)
+          </div>
         </div>
         <div className={styles.project_inner}>
           <div>
@@ -146,16 +148,13 @@ export default function Home() {
               <div className={styles.project_desc}>
                 NextJs의 편리한 라우팅, Axios를 이용한 API 통신,
                 <br />
+                React hook을 활용한 상태관리,
+                <br />
                 TypeScript 사용으로 타입 안정성을 통한 개발 생산성 향상,
                 <br />
                 키보드 TAP키로 접근하는 사용자의 편의성을 생각하여 클론코딩한
                 사이트입니다.
                 <br />
-                <br />
-                [해당 사이트를 고른 이유]
-                <br />웹 접근성 인증 마크를 받은 사이트의 클론 코딩을 통해
-                인증마크를 받은 사이트들은 어떻게 짜여져 있는지 파악하는것이
-                목표였습니다.
               </div>
               <div className={styles.project_tag}>
                 <span>#REACT </span>
@@ -189,7 +188,13 @@ export default function Home() {
             </div>
             <div className={styles.project_inner_desc_wrap}>
               <div className={styles.project_title}>넷플릭스</div>
-              <div className={styles.project_desc}>넷플릭스 클론코딩</div>
+              <div className={styles.project_desc}>
+                Reack hook과 DOM 메소드를 활용하여 modal 좌표, 넓이 값 계산,
+                <br />
+                Swiper / react-modal 라이브러리 활용, <br />
+                TypeScript 사용으로 타입 안정성을 통한 개발 생산성 향상
+                <br />
+              </div>
               <div className={styles.project_tag}>
                 <span>#REACT </span>
                 <span>#TypeScript </span>
@@ -215,21 +220,29 @@ export default function Home() {
             </div>
             <div className={styles.project_inner_desc_wrap}>
               <div className={styles.project_title}>Toss</div>
-              <div className={styles.project_desc}>Toss 클론코딩</div>
+              <div className={styles.project_desc}>
+                GSAP 라이브러리 활용,
+                <br />
+                jQuery와 css를 이용한 애니메이션 구현,
+                <br />
+                WAI-ARIA를 이용해 웹 접근성 향상
+              </div>
               <div className={styles.project_tag}>
                 <span>#HTML </span>
                 <span>#CSS </span>
                 <span>#jQuery </span>
                 <span>#GSAP </span>
                 <span>#반응형 </span>
+                <span>#접근성 </span>
               </div>
               <div className={styles.project_btn_wrap}>
                 <button className={styles.project_btn_view} onClick={() => {}}>
-                  View Site
+                  View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </button>
-                <button className={styles.project_btn_git} onClick={() => {}}>
-                  github
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Sub Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </button>
               </div>
             </div>
@@ -239,26 +252,35 @@ export default function Home() {
             <div className={styles.project_img_wrap}>
               <a
                 className={styles.project_img}
-                style={{ backgroundImage: `url(/images/portfolio/sdf.png)` }}
+                style={{
+                  backgroundImage: `url(/images/portfolio/pearlabyss.png)`,
+                }}
               />
             </div>
             <div className={styles.project_inner_desc_wrap}>
-              <div className={styles.project_title}>서울 디지털 재단</div>
+              <div className={styles.project_title}>펄어비스</div>
               <div className={styles.project_desc}>
-                서울 디지털 재단 클론 코딩을 통한 웹 접근성, 반응형 작업
+                Swiper, aos 라이브러리 활용,
+                <br />
+                카운팅 이벤트, 테이블 태그 활용, <br />
+                jQuery와 css를 이용한 애니메이션 구현 <br />
               </div>
               <div className={styles.project_tag}>
-                <span>#react </span>
-                <span>#typescript </span>
-                <span>#nextJs </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#Swiper </span>
+                <span>#Aos </span>
+                <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
                 <button className={styles.project_btn_view} onClick={() => {}}>
-                  View Site
+                  View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </button>
-                <button className={styles.project_btn_git} onClick={() => {}}>
-                  github
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Sub Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </button>
               </div>
             </div>
@@ -267,26 +289,33 @@ export default function Home() {
             <div className={styles.project_img_wrap}>
               <a
                 className={styles.project_img}
-                style={{ backgroundImage: `url(/images/portfolio/sdf.png)` }}
+                style={{
+                  backgroundImage: `url(/images/portfolio/HI.png)`,
+                }}
               />
             </div>
             <div className={styles.project_inner_desc_wrap}>
-              <div className={styles.project_title}>서울 디지털 재단</div>
+              <div className={styles.project_title}>하이브인사이트</div>
               <div className={styles.project_desc}>
-                서울 디지털 재단 클론 코딩을 통한 웹 접근성, 반응형 작업
+                풀 페이지 슬라이드, Swiper 슬라이드 활용
+                <br />
               </div>
               <div className={styles.project_tag}>
-                <span>#react </span>
-                <span>#typescript </span>
-                <span>#nextJs </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#Swiper </span>
+                <span>#fullpage </span>
+                <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
                 <button className={styles.project_btn_view} onClick={() => {}}>
-                  View Site
+                  View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </button>
-                <button className={styles.project_btn_git} onClick={() => {}}>
-                  github
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Sub Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </button>
               </div>
             </div>
@@ -295,58 +324,195 @@ export default function Home() {
             <div className={styles.project_img_wrap}>
               <a
                 className={styles.project_img}
-                style={{ backgroundImage: `url(/images/portfolio/sdf.png)` }}
+                style={{ backgroundImage: `url(/images/portfolio/bm.png)` }}
               />
             </div>
             <div className={styles.project_inner_desc_wrap}>
-              <div className={styles.project_title}>서울 디지털 재단</div>
+              <div className={styles.project_title}>배달의민족</div>
               <div className={styles.project_desc}>
-                서울 디지털 재단 클론 코딩을 통한 웹 접근성, 반응형 작업
+                풀 페이지 슬라이드 라이브러리 활용, <br />
+                CSS 애니메이션 활용
               </div>
               <div className={styles.project_tag}>
-                <span>#react </span>
-                <span>#typescript </span>
-                <span>#nextJs </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#fullpage </span>
+                <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <div className={styles.project_btn_wrap}>
-                  <button
-                    className={styles.project_btn_more}
-                    onClick={() => {}}
-                  >
-                    Read More
-                  </button>
-                </div>
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Main Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
+                </button>
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Sub Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
+                </button>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              {" "}
               <a
                 className={styles.project_img}
-                style={{ backgroundImage: `url(/images/portfolio/sdf.png)` }}
+                style={{ backgroundImage: `url(/images/portfolio/nw.png)` }}
               />
             </div>
             <div className={styles.project_inner_desc_wrap}>
-              <div className={styles.project_title}>서울 디지털 재단</div>
-              <div className={styles.project_desc}>
-                서울 디지털 재단 클론 코딩을 통한 웹 접근성, 반응형 작업
-              </div>
+              <div className={styles.project_title}>네이버웨일</div>
+              <div className={styles.project_desc}>테이블태그 활용</div>
               <div className={styles.project_tag}>
-                <span>#react </span>
-                <span>#typescript </span>
-                <span>#nextJs </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <div className={styles.project_btn_wrap}>
-                  <button
-                    className={styles.project_btn_more}
-                    onClick={() => {}}
-                  >
-                    Read More
-                  </button>
-                </div>
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Main Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
+                </button>
+                <button className={styles.project_btn_view} onClick={() => {}}>
+                  View Sub Page
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className={styles.project_img_wrap}>
+              <a
+                className={styles.project_img}
+                style={{
+                  backgroundImage: `url(/images/portfolio/lottie1.gif)`,
+                }}
+              />
+            </div>
+            <div className={styles.project_inner_desc_wrap}>
+              <div className={styles.project_title}>
+                Lottie 애니메이션 및 @keyframes 애니메이션 활용
+              </div>
+              <div className={styles.project_desc}>
+                디자인툴 After Effects과 Json을 이용한 Lottie 애니메이션, <br />
+                CSS의 @keyframes을 이용한 애니메이션
+              </div>
+              <div className={styles.project_tag}>
+                <span>#Lottie </span>
+                <span>#CSS </span>
+                <span>#@keyframes </span>
+                <span>#반응형 </span>
+              </div>
+              <div className={styles.project_btn_wrap}>
+                <button className={styles.project_btn_more} onClick={() => {}}>
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className={styles.project_img_wrap}>
+              <a
+                className={styles.project_img}
+                style={{
+                  backgroundImage: `url(/images/portfolio/cherrypl2.jpg)`,
+                }}
+              />
+            </div>
+            <div className={styles.project_inner_desc_wrap}>
+              <div className={styles.project_title}>체리플</div>
+              <div className={styles.project_desc}>기여도 40%</div>
+              <div className={styles.project_tag}>
+                <span>#PHP </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#반응형 </span>
+              </div>
+              <div className={styles.project_btn_wrap}>
+                <button className={styles.project_btn_more} onClick={() => {}}>
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className={styles.project_img_wrap}>
+              <a
+                className={styles.project_img}
+                style={{
+                  backgroundImage: `url(/images/portfolio/ele2.jpg)`,
+                }}
+              />
+            </div>
+            <div className={styles.project_inner_desc_wrap}>
+              <div className={styles.project_title}>코끼리교실</div>
+              <div className={styles.project_desc}>기여도 60%</div>
+              <div className={styles.project_tag}>
+                <span>#PHP </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#반응형 </span>
+              </div>
+              <div className={styles.project_btn_wrap}>
+                <button className={styles.project_btn_more} onClick={() => {}}>
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className={styles.project_img_wrap}>
+              <a
+                className={styles.project_img}
+                style={{
+                  backgroundImage: `url(/images/portfolio/hd3.jpg)`,
+                }}
+              />
+            </div>
+            <div className={styles.project_inner_desc_wrap}>
+              <div className={styles.project_title}>헬스딕셔너리</div>
+              <div className={styles.project_desc}>기여도 60%</div>
+              <div className={styles.project_tag}>
+                <span>#PHP </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#반응형 </span>
+              </div>
+              <div className={styles.project_btn_wrap}>
+                <button className={styles.project_btn_more} onClick={() => {}}>
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className={styles.project_img_wrap}>
+              <a
+                className={styles.project_img}
+                style={{
+                  backgroundImage: `url(/images/portfolio/irept1.png)`,
+                }}
+              />
+            </div>
+            <div className={styles.project_inner_desc_wrap}>
+              <div className={styles.project_title}>i-rept</div>
+              <div className={styles.project_desc}>기여도 40%</div>
+              <div className={styles.project_tag}>
+                <span>#PHP </span>
+                <span>#HTML </span>
+                <span>#CSS </span>
+                <span>#jQuery </span>
+                <span>#웹뷰 </span>
+              </div>
+              <div className={styles.project_btn_wrap}>
+                <button className={styles.project_btn_more} onClick={() => {}}>
+                  Read More
+                </button>
               </div>
             </div>
           </div>
