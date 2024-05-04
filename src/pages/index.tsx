@@ -1,5 +1,6 @@
-import styles from "@/styles/Home.module.scss";
 import { useEffect, useState } from "react";
+import styles from "@/styles/Home.module.scss";
+import Link from "next/link";
 
 export default function Home() {
   const [isActive, setIsActive] = useState("main");
@@ -31,9 +32,9 @@ export default function Home() {
 
     if (position > mainPosition && position < worksPosition) {
       setIsActive("main");
-    } else if (position > worksPosition && position < contactPosition) {
+    } else if (position > worksPosition && position < contactPosition - 600) {
       setIsActive("works");
-    } else if (position > contactPosition) {
+    } else if (position > contactPosition - 600) {
       setIsActive("contact");
     }
   }, [position]);
@@ -138,7 +139,7 @@ export default function Home() {
         <div className={styles.project_inner}>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{ backgroundImage: `url(/images/portfolio/sdf.png)` }}
               />
@@ -179,7 +180,7 @@ export default function Home() {
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/netflix.png)`,
@@ -203,17 +204,21 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <Link
+                  target="_blank"
+                  href="/netflix"
+                  className={styles.project_btn_view}
+                >
                   View Site
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
 
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{ backgroundImage: `url(/images/portfolio/toss.png)` }}
               />
@@ -236,21 +241,29 @@ export default function Home() {
                 <span>#접근성 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/toss_m/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                </a>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/toss_s/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
 
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/pearlabyss.png)`,
@@ -274,20 +287,28 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/pearlabyss_m/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                </a>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/pearlabyss_s/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/HI.png)`,
@@ -309,20 +330,28 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/hi_m/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                </a>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/hi_s/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{ backgroundImage: `url(/images/portfolio/bm.png)` }}
               />
@@ -341,20 +370,20 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/bm_m/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
-                <button className={styles.project_btn_view} onClick={() => {}}>
-                  View Sub Page
-                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{ backgroundImage: `url(/images/portfolio/nw.png)` }}
               />
@@ -369,20 +398,28 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/nw_m/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                </a>
+                <a
+                  target="_blank"
+                  href="http://sej.dothome.co.kr/nw_s/index.html"
+                  className={styles.project_btn_view}
+                >
                   View Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/lottie1.gif)`,
@@ -404,15 +441,15 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_more} onClick={() => {}}>
+                <Link href="/ani" className={styles.project_btn_more}>
                   Read More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/cherrypl2.jpg)`,
@@ -427,18 +464,19 @@ export default function Home() {
                 <span>#HTML </span>
                 <span>#CSS </span>
                 <span>#jQuery </span>
+                <span>#Bootstrap </span>
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_more} onClick={() => {}}>
+                <Link href="/cherrypl" className={styles.project_btn_more}>
                   Read More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/ele2.jpg)`,
@@ -453,19 +491,23 @@ export default function Home() {
                 <span>#HTML </span>
                 <span>#CSS </span>
                 <span>#jQuery </span>
+                <span>#Bootstrap </span>
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_more} onClick={() => {}}>
+                <Link
+                  href="/elephantschool"
+                  className={styles.project_btn_more}
+                >
                   Read More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
 
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={styles.project_img}
                 style={{
                   backgroundImage: `url(/images/portfolio/hd3.jpg)`,
@@ -474,7 +516,7 @@ export default function Home() {
             </div>
             <div className={styles.project_inner_desc_wrap}>
               <div className={styles.project_title}>헬스딕셔너리</div>
-              <div className={styles.project_desc}>기여도 60%</div>
+              <div className={styles.project_desc}>기여도 50%</div>
               <div className={styles.project_tag}>
                 <span>#PHP </span>
                 <span>#HTML </span>
@@ -483,16 +525,19 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_more} onClick={() => {}}>
+                <Link
+                  href="/healthdictionary"
+                  className={styles.project_btn_more}
+                >
                   Read More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
 
           <div>
             <div className={styles.project_img_wrap}>
-              <a
+              <div
                 className={`${styles.project_img} ${styles.project_img_irept}`}
                 style={{
                   backgroundImage: `url(/images/portfolio/irept4.png)`,
@@ -501,18 +546,18 @@ export default function Home() {
             </div>
             <div className={styles.project_inner_desc_wrap}>
               <div className={styles.project_title}>i-rept</div>
-              <div className={styles.project_desc}>기여도 40%</div>
+              <div className={styles.project_desc}>기여도 30%</div>
               <div className={styles.project_tag}>
                 <span>#PHP </span>
                 <span>#HTML </span>
                 <span>#CSS </span>
                 <span>#jQuery </span>
-                <span>#웹뷰 </span>
+                <span>#모바일 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_more} onClick={() => {}}>
+                <Link href="/irept" className={styles.project_btn_more}>
                   Read More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
