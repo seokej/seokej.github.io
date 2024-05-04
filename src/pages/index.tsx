@@ -493,9 +493,9 @@ export default function Home() {
           <div>
             <div className={styles.project_img_wrap}>
               <a
-                className={styles.project_img}
+                className={`${styles.project_img} ${styles.project_img_irept}`}
                 style={{
-                  backgroundImage: `url(/images/portfolio/irept1.png)`,
+                  backgroundImage: `url(/images/portfolio/irept4.png)`,
                 }}
               />
             </div>
