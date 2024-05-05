@@ -1,0 +1,41 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://seokej.github.io/",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "classnames": "^2.5.1",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-18-image-lightbox": "^5.1.4",
+    "react-dom": "^18",
+    "react-grid-gallery": "^1.0.1",
+    "react-icons": "^5.2.0",
+    "react-modal": "^3.16.1",
+    "swiper": "^11.1.1",
+    "swr": "^2.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.79",
+    "@types/react-dom": "^18",
+    "@types/react-modal": "^3.16.3",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "gh-pages": "^6.1.1",
+    "sass": "^1.75.0",
+    "typescript": "5.4.5",
+    "typescript-plugin-css-modules": "^5.1.0"
+  }
+}
