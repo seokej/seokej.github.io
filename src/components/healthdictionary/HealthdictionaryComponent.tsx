@@ -69,14 +69,28 @@ const HealthdictionaryComponent = () => {
       </nav>
 
       <div className={styles.item_container}>
-        <div className={styles.item_wrap}>
-          <div className={styles.item_title}>
-            <div className={styles.title}>헬스딕셔너리</div>
-            <div className={styles.year}>2021</div>
+        <div className={styles.item_container_inner}>
+          <div className={styles.item_mockup}>
+            <img
+              className={styles.item_mockup_itemMain}
+              src="/images/portfolio/mockup/img_mockup_hd_pc.png"
+              alt="목업"
+            />
+            <img
+              className={styles.item_mockup_itemSub}
+              src="/images/portfolio/mockup/img_mockup_hd.png"
+              alt="목업"
+            />
           </div>
+          <div className={styles.item_wrap}>
+            <div className={styles.item_title}>
+              <div className={styles.title}>헬스딕셔너리</div>
+              <div className={styles.year}>2021</div>
+            </div>
 
-          <div className={styles.item_desc}>
-            <div>건강식품과 건강 관련 정보 제공 플랫폼</div>
+            <div className={styles.item_desc}>
+              <div>건강식품과 건강 관련 정보 제공 플랫폼</div>
+            </div>
           </div>
         </div>
       </div>

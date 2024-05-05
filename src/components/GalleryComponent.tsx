@@ -12,16 +12,7 @@ const GalleryComponent = (props: Props) => {
   const { type, images, onClick } = props;
 
   return (
-    <div
-      //   style={{
-      //     gridTemplateColumns: `${
-      //       type === "pc"
-      //         ? "repeat(3, minmax(0, 1fr))"
-      //         : "repeat(3, minmax(0, 1fr))"
-      //     }`,
-      //   }}
-      className={styles.wrap}
-    >
+    <div className={styles.wrap}>
       {images.map((data: ImageType, index: number) => {
         return (
           <div

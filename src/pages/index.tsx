@@ -109,23 +109,42 @@ export default function Home() {
       <main id="main" className={styles.main}>
         <div>
           <div className={styles.solid_item01}>
-            <img src="/images/portfolio/main_img01.png" alt="solid" />
+            <img src="/images/portfolio/main_img04.png" alt="solid" />
           </div>
           <div className={styles.solid_item02}>
             <img src="/images/portfolio/main_img05.png" alt="solid" />
           </div>
         </div>
         <div className={styles.title_wrap}>
-          <div className={styles.title} data-fill-text="READY">
+          <div
+            className={`${styles.title} ${styles.title_none}`}
+            data-fill-text="READY"
+          >
             READY
           </div>
-          <div className={styles.title} data-fill-text="TO">
+          <div
+            className={`${styles.title} ${styles.title_none}`}
+            data-fill-text="TO"
+          >
             TO
           </div>
-          <div className={styles.title} data-fill-text="WORK">
+          <div
+            className={`${styles.title} ${styles.title_none}`}
+            data-fill-text="WORK"
+          >
             WORK
           </div>
-          <div className={styles.title}>UI DEVELOPER</div>
+          <div className={`${styles.title} ${styles.title_dev}`}>
+            UI DEVELOPER
+          </div>
+        </div>
+        <div className={styles.title_wrap_mo}>
+          <div className={`${styles.title_mo} ${styles.title_none_mo}`}>
+            READY TO WORK
+          </div>
+          <div className={`${styles.title_mo} ${styles.title_dev_mo}`}>
+            UI DEVELOPER
+          </div>
         </div>
       </main>
 
@@ -261,7 +280,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/toss_m/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Main Page
+                  Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
                 <a
@@ -269,7 +288,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/toss_s/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Sub Page
+                  Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
               </div>
@@ -307,7 +326,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/pearlabyss_m/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Main Page
+                  Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
                 <a
@@ -315,7 +334,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/pearlabyss_s/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Sub Page
+                  Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
               </div>
@@ -350,7 +369,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/hi_m/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Main Page
+                  Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
                 <a
@@ -358,7 +377,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/hi_s/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Sub Page
+                  Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
               </div>
@@ -390,7 +409,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/bm_m/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Main Page
+                  Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
               </div>
@@ -418,7 +437,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/nw_m/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Main Page
+                  Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
                 <a
@@ -426,7 +445,7 @@ export default function Home() {
                   href="http://sej.dothome.co.kr/nw_s/index.html"
                   className={styles.project_btn_view}
                 >
-                  View Sub Page
+                  Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
                 </a>
               </div>
