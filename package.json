@@ -6,8 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://seokej.github.io/",
   "dependencies": {
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
@@ -28,6 +33,7 @@
     "@types/react-modal": "^3.16.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "gh-pages": "^6.1.1",
     "sass": "^1.75.0",
     "typescript": "5.4.5",
     "typescript-plugin-css-modules": "^5.1.0"
