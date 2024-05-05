@@ -178,7 +178,7 @@ export default function Home() {
                 </Link>
                 <Link
                   target="_blank"
-                  href="/netflix"
+                  href="https://github.com/seokej/sdf"
                   className={styles.project_btn_git}
                 >
                   github
@@ -219,6 +219,13 @@ export default function Home() {
                 >
                   View Site
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://github.com/seokej/netflix"
+                  className={styles.project_btn_git}
+                >
+                  github
                 </Link>
               </div>
             </div>
