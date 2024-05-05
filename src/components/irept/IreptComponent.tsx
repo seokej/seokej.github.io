@@ -57,14 +57,22 @@ const IreptComponent = () => {
       </nav>
 
       <div className={styles.item_container}>
-        <div className={styles.item_wrap}>
-          <div className={styles.item_title}>
-            <div className={styles.title}>i-Rept</div>
-            <div className={styles.year}>2021</div>
+        <div className={styles.item_container_inner}>
+          <div className={`${styles.item_mockup} ${styles.item_mockup_irept}`}>
+            <img
+              src="/images/portfolio/mockup/img_mockup3D_irept.png"
+              alt="목업"
+            />
           </div>
+          <div className={styles.item_wrap}>
+            <div className={styles.item_title}>
+              <div className={styles.title}>i-Rept</div>
+              <div className={styles.year}>2021</div>
+            </div>
 
-          <div className={styles.item_desc}>
-            <div>양서파충류인들을 위한 어플리케이션</div>
+            <div className={styles.item_desc}>
+              <div>양서파충류인들을 위한 어플리케이션</div>
+            </div>
           </div>
         </div>
       </div>

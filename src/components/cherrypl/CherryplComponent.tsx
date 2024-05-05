@@ -69,14 +69,28 @@ const CherryplComponent = () => {
       </nav>
 
       <div className={styles.item_container}>
-        <div className={styles.item_wrap}>
-          <div className={styles.item_title}>
-            <div className={styles.title}>체리플 (cherrypl)</div>
-            <div className={styles.year}>2021</div>
+        <div className={styles.item_container_inner}>
+          <div className={styles.item_mockup}>
+            <img
+              className={styles.item_mockup_itemMain}
+              src="/images/portfolio/mockup/img_mockup_che_pc.png"
+              alt="목업"
+            />
+            <img
+              className={styles.item_mockup_itemSub}
+              src="/images/portfolio/mockup/img_mockup_che.png"
+              alt="목업"
+            />
           </div>
+          <div className={styles.item_wrap}>
+            <div className={styles.item_title}>
+              <div className={styles.title}>체리플 (cherrypl)</div>
+              <div className={styles.year}>2021</div>
+            </div>
 
-          <div className={styles.item_desc}>
-            <div>KT그룹사에서 운영중인 체험단 마케팅 플랫폼</div>
+            <div className={styles.item_desc}>
+              <div>KT그룹사에서 운영중인 체험단 마케팅 플랫폼</div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,11 @@
 .wrap {
   position: relative;
   height: 100%;
-  padding: 0 7vw;
+
   font-family: "SUIT", sans-serif;
   color: white;
   background-color: black;
+  word-break: keep-all;
 
   .nav {
     position: fixed;
@@ -34,7 +35,7 @@
       padding: 8px 12px;
       font-family: "SUIT", sans-serif;
       font-size: 16px;
-      font-weight: 900;
+      font-weight: bold;
       color: #121212;
       border-radius: 999px;
       cursor: pointer;
@@ -43,13 +44,165 @@
 
   .item_container {
     position: relative;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
+
+    .item_container_inner {
+      min-height: 100vh;
+      padding: 0 7vw;
+      background: linear-gradient(#98c3f4, #000000);
+    }
+
+    .item_mockup {
+      position: relative;
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+      padding: 12vh 0 0;
+
+      .item_mockup_itemMain {
+        position: relative;
+        top: 50%;
+        left: -5%;
+        padding: 3vh 0 0;
+        width: 35vw;
+        height: 100%;
+
+        @media (max-width: 1180px) {
+          padding: 5vh 0 0;
+          width: 40vw;
+        }
+
+        @media (max-width: 768px) {
+          padding: 7vh 0 0;
+          width: 60vw;
+        }
+
+        @media (max-width: 426px) {
+          padding: 10vh 0 0;
+          width: 74vw;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .item_mockup_itemSub {
+        position: absolute;
+        width: 35vw;
+        top: 40%;
+        left: 45%;
+
+        @media (max-width: 1180px) {
+          padding: 5vh 0 0;
+          width: 40vw;
+        }
+
+        @media (max-width: 768px) {
+          padding: 7vh 0 0;
+          width: 60vw;
+        }
+
+        @media (max-width: 426px) {
+          padding: 10vh 0 0;
+          width: 74vw;
+        }
+      }
+    }
+
+    .item_mockup_ani {
+      padding: 14.3vh 0 0;
+
+      @media (max-width: 1180px) {
+        padding: 16.6vh 0 0;
+      }
+
+      @media (max-width: 768px) {
+        padding: 18.6vh 0 0;
+      }
+
+      @media (max-width: 426px) {
+        padding: 20.6vh 0 0;
+      }
+
+      .mockup_preview {
+        position: relative;
+        width: 472px;
+        height: 434px;
+        padding: 16px 17px 168px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 9;
+
+        @media (max-width: 1180px) {
+          width: 472px;
+          height: 434px;
+          padding: 16px 17px 168px;
+        }
+
+        @media (max-width: 768px) {
+          width: 460px;
+          height: 442px;
+          padding: 18px 17px 184px;
+        }
+
+        @media (max-width: 572px) {
+          width: 236px;
+          height: 282px;
+          padding: 10px 9px 150px;
+        }
+
+        .mockup_preview_img_wrap {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 3px;
+          overflow: hidden;
+          z-index: 9;
+
+          .mockup_preview_img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: all 4s;
+          }
+        }
+      }
+    }
+
+    .item_mockup_irept {
+      width: 24vw;
+
+      @media (max-width: 1180px) {
+        padding: 14vh 0 0;
+        width: 40vw;
+      }
+
+      @media (max-width: 768px) {
+        padding: 16vh 0 0;
+        width: 60vw;
+      }
+
+      @media (max-width: 426px) {
+        padding: 18vh 0 0;
+        width: 74vw;
+      }
+    }
 
     .item_wrap {
       position: relative;
-      top: 60vh;
+      margin-top: 30px;
+
+      @media (max-width: 768px) {
+        margin-top: 50px;
+      }
 
       .title {
         position: relative;
@@ -57,6 +210,11 @@
         font-weight: 700;
         line-height: 63px;
         letter-spacing: -0.02em;
+
+        @media (max-width: 768px) {
+          font-size: 28px;
+          line-height: 40px;
+        }
       }
 
       .year {
@@ -70,17 +228,48 @@
       .item_desc {
         margin-top: 60px;
         line-height: 25px;
+
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
       }
+
+      .item_desc_ani {
+        margin-top: 40px;
+
+        @media (max-width: 768px) {
+          margin-top: 30px;
+        }
+      }
+    }
+
+    .item_wrap_ani {
+      @media (max-width: 768px) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .item_img_ani_wrap {
+    margin-top: 150px;
+
+    @media (max-width: 768px) {
+      margin-top: 120px;
     }
   }
 
   .item_img_wrap {
     position: relative;
     min-height: 100vh;
+    padding: 0 7vw;
 
     .item_img_title_desc {
       font-size: 16px;
       color: rgb(104, 187, 255);
+
+      @media (max-width: 768px) {
+        line-height: 24px;
+      }
     }
 
     .item_img_ani_desc {
@@ -88,6 +277,10 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
       margin-top: 64px;
+
+      @media (max-width: 768px) {
+        margin-top: 44px;
+      }
 
       img {
         max-width: 100%;
@@ -102,12 +295,20 @@
     .item_img_pc_wrap {
       margin-top: 64px;
 
+      @media (max-width: 768px) {
+        margin-top: 44px;
+      }
+
       .item_img_pc_title {
         margin-bottom: 30px;
         font-size: 32px;
         font-weight: 700;
         line-height: 38px;
         letter-spacing: -0.02em;
+
+        @media (max-width: 768px) {
+          font-size: 28px;
+        }
       }
     }
 
@@ -119,6 +320,19 @@
         font-size: 32px;
         font-weight: 700;
         line-height: 38px;
+        letter-spacing: -0.02em;
+
+        @media (max-width: 768px) {
+          font-size: 28px;
+        }
+      }
+
+      .item_img_mo_subtitle {
+        margin: 10px 0 64px;
+        font-size: 16px;
+        font-weight: 700;
+        color: rgb(104, 187, 255);
+        line-height: 22px;
         letter-spacing: -0.02em;
       }
     }
