@@ -168,13 +168,21 @@ export default function Home() {
                 <span>#접근성 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <button className={styles.project_btn_view} onClick={() => {}}>
+                <Link
+                  target="_blank"
+                  href="/sdf"
+                  className={styles.project_btn_view}
+                >
                   View Site
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </button>
-                <button className={styles.project_btn_git} onClick={() => {}}>
+                </Link>
+                <Link
+                  target="_blank"
+                  href="/netflix"
+                  className={styles.project_btn_git}
+                >
                   github
-                </button>
+                </Link>
               </div>
             </div>
           </div>
