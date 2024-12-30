@@ -1,164 +1,421 @@
-import React, { useEffect } from "react";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import gsap from "gsap/dist/gsap";
-// import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
+"use client";
+import React, { useEffect, useRef } from "react";
 import EbComponentStyle from "./EbComponentStyle";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof document !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 const EnterpriseComponent = () => {
-  // gsap.registerPlugin(useGSAP, ScrollTrigger);
+  const container = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    if (typeof document !== undefined) {
-      return;
-    }
+  useGSAP(
+    () => {
+      document.body.classList.add("dark");
 
-    gsap.registerPlugin(ScrollTrigger);
+      let header = document.getElementById("header");
+      let body = document.body;
 
+      /**
+       * topBtn 관련 scroll 애니메이션 코드
+       */
+      let topBtn = document.getElementById("topBtn");
+      let topBtnAction = document.getElementById("topBtnAction");
 
-    document.body.classList.add("dark");
+      // 이전 스크롤 위치 초기화
+      let lastScroll = 0;
 
-    let header = document.getElementById("header");
-    let body = document.body;
+      window.addEventListener("scroll", () => {
+        // 현재 스크롤 위치
+        const currentScroll = window.scrollY;
 
-    /**
-     * topBtn 관련 scroll 애니메이션 코드
-     */
-    let topBtn = document.getElementById("topBtn");
-    let topBtnAction = document.getElementById("topBtnAction");
-
-    // 이전 스크롤 위치 초기화
-    let lastScroll = 0;
-
-    window.addEventListener("scroll", () => {
-      // 현재 스크롤 위치
-      const currentScroll = window.scrollY;
-
-      // 이전 스크롤 위치가 현재 스크롤 위치보다 클 경우 스크롤 up
-      if (currentScroll < lastScroll) {
-        topBtn?.classList.add("on");
-      } else {
-        // 이전 스크롤 위치가 현재 스크롤 위치보다 작을 경우 스크롤 down
-        topBtn?.classList.remove("on");
-      }
-
-      // 이전 스크롤 위치에 현재 스크롤 위치를 저장
-      // 다음 스크롤 때 현재 위치 기준으로 (위,아래) 파악하기 위해
-      lastScroll = currentScroll;
-    });
-
-    // topBtn버튼이 클릭되면 최상위로 이동
-    topBtnAction?.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-
-    /**
-     * nav 관련 scroll 애니메이션 코드
-     */
-    ScrollTrigger.create({
-      trigger: "body",
-      start: "1000px 0%",
-      end: "100% 100%",
-      onEnter: function () {
-        header?.classList.add("fixed");
-      },
-      onLeaveBack: function () {
-        header?.classList.remove("fixed");
-      },
-    });
-
-    /**
-     * section1 관련 animation 코드
-     */
-    const section1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section1",
-        start: "top top",
-        end: "+=7000",
-        scrub: true,
-        pin: true,
-        toggleClass: {
-          targets: "#top-btn",
-          className: "hide",
-        },
-      },
-    });
-
-    document
-      .querySelectorAll(".section1-text-wrap p")
-      .forEach((elem, index, array) => {
-        if (index === array.length) {
-          section1.from(elem, { opacity: 1, duration: 20 }, "+=1");
+        // 이전 스크롤 위치가 현재 스크롤 위치보다 클 경우 스크롤 up
+        if (currentScroll < lastScroll) {
+          topBtn?.classList.add("on");
         } else {
-          section1.to(elem, { autoAlpha: 1, duration: 20 });
-          if (index !== array.length - 2) {
-            if (index === 0) {
-              section1.to(".section1 .section1-bg", {
-                backgroundColor: "rgba(0,0,0,0.6)",
-                duration: 20,
-              });
-            }
-            section1.to(elem, { autoAlpha: 0, duration: 100 }, "+=1");
-          }
+          // 이전 스크롤 위치가 현재 스크롤 위치보다 작을 경우 스크롤 down
+          topBtn?.classList.remove("on");
         }
+
+        // 이전 스크롤 위치에 현재 스크롤 위치를 저장
+        // 다음 스크롤 때 현재 위치 기준으로 (위,아래) 파악하기 위해
+        lastScroll = currentScroll;
       });
 
-    /**
-     * section2 관련 animation 코드
-     */
-    const section2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section2",
+      // topBtn버튼이 클릭되면 최상위로 이동
+      topBtnAction?.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      /**
+       * nav 관련 scroll 애니메이션 코드
+       */
+      ScrollTrigger.create({
+        trigger: "body",
+        start: "1000px 0%",
+        end: "100% 100%",
+        onEnter: function () {
+          header?.classList.add("fixed");
+        },
+        onLeaveBack: function () {
+          header?.classList.remove("fixed");
+        },
+      });
+
+      /**
+       * section1 관련 animation 코드
+       */
+      const section1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section1",
+          start: "top top",
+          end: "+=7000",
+          scrub: true,
+          pin: true,
+          toggleClass: {
+            targets: "#top-btn",
+            className: "hide",
+          },
+        },
+      });
+
+      document
+        .querySelectorAll(".section1-text-wrap p")
+        .forEach((elem, index, array) => {
+          if (index === array.length) {
+            section1.from(elem, { opacity: 1, duration: 20 }, "+=1");
+          } else {
+            section1.to(elem, { autoAlpha: 1, duration: 20 });
+            if (index !== array.length - 2) {
+              if (index === 0) {
+                section1.to(".section1 .section1-bg", {
+                  backgroundColor: "rgba(0,0,0,0.6)",
+                  duration: 20,
+                });
+              }
+              section1.to(elem, { autoAlpha: 0, duration: 100 }, "+=1");
+            }
+          }
+        });
+
+      /**
+       * section2 관련 animation 코드
+       */
+      const section2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section2",
+          start: "top top",
+          end: "+=7000",
+          scrub: true,
+          pin: true,
+        },
+      });
+
+      section2
+        .addLabel("a")
+        .to(
+          ".section2-bg",
+          { backgroundColor: "rgba(0,0,0,0.6)", duration: 100 },
+          "a"
+        )
+        .from(".section2-text-title-wrap", { autoAlpha: 0, duration: 100 }, "a")
+        .to(".section2-text1", { xPercent: 100, duration: 20 }, "b")
+        .to(".section2-text3", { xPercent: -100, duration: 20 }, "b")
+        .to(
+          ".section2-bg",
+          { backgroundColor: "rgba(0,0,0,0)", duration: 20 },
+          "b"
+        )
+        .to(".section2-text-title-wrap", { autoAlpha: 0, duration: 20 }, "+=1")
+        .to(".section2 .section2-img-inner:nth-child(3)", {
+          height: 0,
+          duration: 20,
+        })
+        .to(".section2 .section2-img-inner:nth-child(2)", {
+          height: 0,
+          duration: 20,
+        })
+        .to(".section2 .section2-text-bg", {
+          backgroundColor: "rgba(0,0,0,0.4)",
+          duration: 20,
+        })
+        .from(".section2 .section2-text4", { autoAlpha: 0, duration: 20 });
+
+      /**
+       * section3 관련 animation 코드
+       */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section3",
+          start: "top 10%",
+          end: "100% 10%",
+          anticipatePin: 1,
+          onEnter: function () {
+            body.classList.remove("dark");
+          },
+          onLeaveBack: function () {
+            body.classList.add("dark");
+          },
+        },
+      });
+
+      /**
+       * section4 관련 animation 코드
+       */
+      const section4 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section4",
+          start: "-10% 52%",
+          end: "45% 52%",
+          scrub: true,
+        },
+      });
+
+      section4
+        .addLabel("a")
+        .from(".section4-bg-before", 1, { xPercent: 100, duration: 1 }, "a")
+        .from(".section4-bg-after", { xPercent: -100, duration: 1 }, "a")
+        .to(".section4-text1", { xPercent: -70, duration: 1 }, "a")
+        .to(".section4-text3", { xPercent: 80, duration: 1 }, "a");
+
+      /**
+       * section5 관련 animation 코드
+       */
+      const section5 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section5",
+          start: "top top",
+          end: "100% 100%",
+          pin: ".section5-text-wrap",
+          scrub: true,
+        },
+      });
+
+      section5.addLabel("a");
+
+      /**
+       * section6 관련 animation 코드
+       */
+      ScrollTrigger.create({
+        trigger: ".section6",
+        start: "0% 55%",
+        end: "45% 55%",
+        markers: false,
+        onEnter: function () {
+          body.classList.add("dark");
+        },
+        onLeaveBack: function () {
+          body.classList.remove("dark");
+        },
+      });
+
+      const section6 = gsap.timeline();
+
+      let section6Div = document.querySelector(".section6-top-left");
+      let section6EleWidth = (section6Div as HTMLElement).offsetWidth + 100;
+
+      section6.addLabel("a").to(".section6-top", { x: -section6EleWidth }, "a");
+
+      ScrollTrigger.create({
+        animation: section6,
+        trigger: ".section6",
         start: "top top",
-        end: "+=7000",
+        end: "+=3000",
+        pin: true,
+        markers: false,
+        scrub: true,
+      });
+
+      /**
+       * banner 관련 animation 코드
+       */
+      const banner = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".banner",
+          start: "-10% 85%",
+          end: "200% 85%",
+          markers: false,
+          scrub: true,
+        },
+      });
+
+      banner
+        .addLabel("a")
+        .from(".banner-color-01", { x: -200, duration: 1 }, "a")
+        .from(".banner-color-02", { x: -300, duration: 1 }, "a")
+        .from(".banner-color-03", { x: 200, duration: 1 }, "a")
+        .addLabel("b")
+        .fromTo(
+          ".banner-text",
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 1 },
+          "b"
+        )
+        .fromTo(
+          ".banner-text-bg",
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 0.5 },
+          "b"
+        );
+
+      /**
+       * section8 관련 animation 코드
+       */
+      let section8Icon = document.getElementsByClassName(
+        "section8-card-item-icon"
+      );
+      let section8Profile = document.getElementsByClassName(
+        "section8-card-item-profile-inner"
+      );
+      let section8Img = document.getElementsByClassName("section8-card-img");
+      let section8VerDesc = document.getElementsByClassName(
+        "section8-vertical-card-item-desc"
+      );
+      let section8VerBg = document.getElementsByClassName(
+        "section8-vertical-card-bg"
+      );
+      let section8VerIcon = document.getElementsByClassName(
+        "section8-vertical-card-item-icon"
+      );
+
+      const section8 = gsap.timeline();
+
+      let section8Div = document.querySelector(".section8-card-wrap");
+      let section8EleWidth = (section8Div as HTMLElement).offsetWidth;
+
+      section8
+        .addLabel("a")
+        .to(".section8-horizon", { x: -515, duration: 3 }, "a")
+
+        .addLabel("b")
+        .to(
+          ".section8-card-wrap",
+          { x: -section8EleWidth + 330, duration: 3 },
+          "b"
+        )
+        .to(".section8-card-item:nth-child(3)", { x: 440, duration: 3 }, "b")
+        .to(".section8-card-item:nth-child(2)", { x: 880, duration: 3 }, "b")
+        .to(".section8-card-item:nth-child(1)", { x: 1320, duration: 3 }, "b")
+        .to(".unlock-img", { autoAlpha: 0, duration: 3 }, "b")
+        .from(".lock-img", { autoAlpha: 0, delay: 2, duration: 0.5 }, "b")
+        .to(".section8-card-item", { autoAlpha: 0, duration: 1 })
+        .to(".lock-img", { autoAlpha: 0, duration: 0.5 })
+        .from(".section8-card-text", { autoAlpha: 0 })
+
+        .addLabel("c")
+        .from(".section8-vertical", { autoAlpha: 0 }, "c")
+        .from(
+          ".section8-vertical",
+          { yPercent: 100, y: "-200", duration: 8, ease: "none" },
+          "c"
+        )
+        .from(".section8-vertical-card-lock", { autoAlpha: 0 })
+        .addLabel("d")
+        .to(
+          ".section8-vertical-card-item:nth-child(2)",
+          { x: -440, duration: 3 },
+          "d"
+        )
+        .to(
+          ".section8-vertical-card-item:nth-child(3)",
+          { x: -880, duration: 3 },
+          "d"
+        )
+        .to(
+          ".section8-vertical-card-item:nth-child(4)",
+          { x: -1320, duration: 3 },
+          "d"
+        )
+        .addLabel("e")
+        .from(
+          ".section8-vertical-card-lock .light",
+          { autoAlpha: 0, duration: 3 },
+          "e"
+        )
+        .from(
+          ".section8-vertical-end-text",
+          { autoAlpha: 0, duration: 3 },
+          "e"
+        );
+
+      const secrion8_img_fade = () => {
+        for (let i = 0; i < section8Img.length; i++) {
+          section8Img.item(i)?.classList.add("fade");
+        }
+      };
+
+      const secrion8_icon_fade = () => {
+        for (let i = 0; i < section8Icon.length; i++) {
+          section8Icon.item(i)?.classList.add("fade");
+        }
+      };
+
+      const secrion8_name_fade = () => {
+        for (let i = 0; i < section8Profile.length; i++) {
+          section8Profile.item(i)?.classList.add("fade");
+        }
+      };
+
+      ScrollTrigger.create({
+        animation: section8,
+        trigger: ".section8",
+        start: "top top",
+        end: "+=9000",
+        markers: false,
         scrub: true,
         pin: true,
-      },
-    });
+        onEnter: function () {
+          secrion8_img_fade();
+          secrion8_icon_fade();
+          secrion8_name_fade();
+        },
+      });
 
-    section2
-      .addLabel("a")
-      .to(
-        ".section2-bg",
-        { backgroundColor: "rgba(0,0,0,0.6)", duration: 100 },
-        "a"
-      )
-      .from(".section2-text-title-wrap", { autoAlpha: 0, duration: 100 }, "a")
-      .to(".section2-text1", { xPercent: 100, duration: 20 }, "b")
-      .to(".section2-text3", { xPercent: -100, duration: 20 }, "b")
-      .to(
-        ".section2-bg",
-        { backgroundColor: "rgba(0,0,0,0)", duration: 20 },
-        "b"
-      )
-      .to(".section2-text-title-wrap", { autoAlpha: 0, duration: 20 }, "+=1")
-      .to(".section2 .section2-img-inner:nth-child(3)", {
-        height: 0,
-        duration: 20,
-      })
-      .to(".section2 .section2-img-inner:nth-child(2)", {
-        height: 0,
-        duration: 20,
-      })
-      .to(".section2 .section2-text-bg", {
-        backgroundColor: "rgba(0,0,0,0.4)",
-        duration: 20,
-      })
-      .from(".section2 .section2-text4", { autoAlpha: 0, duration: 20 });
+      const section8_vertical_bg = () => {
+        for (let i = 0; i < section8VerBg.length; i++) {
+          section8VerBg.item(i)?.classList.add("blur");
+        }
+      };
 
-    /**
-     * section3 관련 animation 코드
-     */
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section3",
-        start: "top 10%",
-        end: "100% 10%",
+      const section8_vertical_desc = () => {
+        for (let i = 0; i < section8VerDesc.length; i++) {
+          section8VerDesc.item(i)?.classList.add("fade");
+        }
+      };
+
+      const section8_vertical_icon = () => {
+        for (let i = 0; i < section8VerIcon.length; i++) {
+          section8VerIcon.item(i)?.classList.add("fade");
+        }
+      };
+
+      ScrollTrigger.create({
+        trigger: ".section8-vertical",
+        start: "190% top",
+        end: "200% bottom",
+        markers: false,
+        onEnter: function () {
+          section8_vertical_bg();
+          section8_vertical_desc();
+          section8_vertical_icon();
+        },
+      });
+
+      /**
+       * section9 관련 animation 코드
+       */
+      ScrollTrigger.create({
+        trigger: ".section9",
+        start: "-15% 55%",
+        end: "45% 55%",
+        markers: false,
         anticipatePin: 1,
         onEnter: function () {
           body.classList.remove("dark");
@@ -166,401 +423,151 @@ const EnterpriseComponent = () => {
         onLeaveBack: function () {
           body.classList.add("dark");
         },
-      },
-    });
+      });
 
-    /**
-     * section4 관련 animation 코드
-     */
-    const section4 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section4",
-        start: "-10% 52%",
-        end: "45% 52%",
-        scrub: true,
-      },
-    });
+      /**
+       * section10 관련 animation 코드
+       */
+      const section10 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section10",
+          start: "-10% 52%",
+          end: "45% 52%",
+          scrub: true,
+        },
+      });
 
-    section4
-      .addLabel("a")
-      .from(".section4-bg-before", 1, { xPercent: 100, duration: 1 }, "a")
-      .from(".section4-bg-after", { xPercent: -100, duration: 1 }, "a")
-      .to(".section4-text1", { xPercent: -70, duration: 1 }, "a")
-      .to(".section4-text3", { xPercent: 80, duration: 1 }, "a");
+      section10
+        .addLabel("a")
+        .from(".section10-bg-before", 1, { xPercent: 100, duration: 1 }, "a")
+        .from(".section10-bg-after", { xPercent: -100, duration: 1 }, "a")
+        .to(".section10-text1", { xPercent: -70, duration: 1 }, "a")
+        .to(".section10-text3", { xPercent: 80, duration: 1 }, "a");
 
-    /**
-     * section5 관련 animation 코드
-     */
-    const section5 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section5",
+      /**
+       * section11 관련 animation 코드
+       */
+      let section11bg = document.getElementById("section11-card-item-bg");
+      let section11arrow = document.getElementById("section11-arrow");
+
+      const section11 = gsap.timeline();
+      const section11_2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section11",
+          start: "0% 20%",
+          end: "100% 0%",
+        },
+      });
+
+      section11_2
+        .addLabel("a")
+        .to(
+          ".section11 .section11-card-desc-wrap",
+          {
+            autoAlpha: 1,
+            duration: 1,
+          },
+          "a"
+        )
+        .to(
+          ".section11-card-icon.expand",
+          {
+            autoAlpha: 0,
+          },
+          "a"
+        )
+        .to(
+          ".section11-card-icon.contract",
+          {
+            autoAlpha: 1,
+          },
+          "a"
+        );
+
+      section11
+        .addLabel("a")
+        .to(
+          ".section11 .section11-inner",
+          { xPercent: -100, x: "100vw", duration: 4 },
+          "a"
+        )
+        .from(".section11 .section11-arrow", { autoAlpha: 0, duration: 1 }, "a")
+        .from(
+          ".section11 .down-title-item2",
+          { autoAlpha: 0, delay: 1, duration: 1 },
+          "a"
+        );
+
+      ScrollTrigger.create({
+        animation: section11,
+        trigger: ".section11",
         start: "top top",
-        end: "100% 100%",
-        pin: ".section5-text-wrap",
-        scrub: true,
-      },
-    });
-
-    section5.addLabel("a");
-
-    /**
-     * section6 관련 animation 코드
-     */
-    ScrollTrigger.create({
-      trigger: ".section6",
-      start: "0% 55%",
-      end: "45% 55%",
-      markers: false,
-      onEnter: function () {
-        body.classList.add("dark");
-      },
-      onLeaveBack: function () {
-        body.classList.remove("dark");
-      },
-    });
-
-    const section6 = gsap.timeline();
-
-    let section6Div = document.querySelector(".section6-top-left");
-    let section6EleWidth = (section6Div as HTMLElement).offsetWidth + 100;
-
-    section6.addLabel("a").to(".section6-top", { x: -section6EleWidth }, "a");
-
-    ScrollTrigger.create({
-      animation: section6,
-      trigger: ".section6",
-      start: "top top",
-      end: "+=3000",
-      pin: true,
-      markers: false,
-      scrub: true,
-    });
-
-    /**
-     * banner 관련 animation 코드
-     */
-    const banner = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".banner",
-        start: "-10% 85%",
-        end: "200% 85%",
+        end: "+=1500",
+        pin: true,
         markers: false,
         scrub: true,
-      },
-    });
+        onEnter: function () {
+          section11bg?.classList.add("blur");
+        },
+        onLeave: function () {
+          section11arrow?.classList.add("fadein");
+        },
+        onEnterBack: function () {
+          section11arrow?.classList.add("fadeout");
+        },
+      });
 
-    banner
-      .addLabel("a")
-      .from(".banner-color-01", { x: -200, duration: 1 }, "a")
-      .from(".banner-color-02", { x: -300, duration: 1 }, "a")
-      .from(".banner-color-03", { x: 200, duration: 1 }, "a")
-      .addLabel("b")
-      .fromTo(
-        ".banner-text",
-        { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 1 },
-        "b"
-      )
-      .fromTo(
-        ".banner-text-bg",
-        { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 0.5 },
-        "b"
-      );
+      /**
+       * section12 관련 animation 코드
+       */
+      const section12 = gsap.timeline();
 
-    /**
-     * section8 관련 animation 코드
-     */
-    let section8Icon = document.getElementsByClassName(
-      "section8-card-item-icon"
-    );
-    let section8Profile = document.getElementsByClassName(
-      "section8-card-item-profile-inner"
-    );
-    let section8Img = document.getElementsByClassName("section8-card-img");
-    let section8VerDesc = document.getElementsByClassName(
-      "section8-vertical-card-item-desc"
-    );
-    let section8VerBg = document.getElementsByClassName(
-      "section8-vertical-card-bg"
-    );
-    let section8VerIcon = document.getElementsByClassName(
-      "section8-vertical-card-item-icon"
-    );
+      section12
+        .from(".section12 .section12-text-wrap", { autoAlpha: 0, duration: 5 })
+        .from(".section12 .section12-arrow", { autoAlpha: 0, duration: 1 })
+        .addLabel("a")
+        .to(
+          ".section12 .section12-text-wrap",
+          { autoAlpha: 0, duration: 1 },
+          "a"
+        )
+        .to(".section12 .section12-arrow", { autoAlpha: 0, duration: 1 }, "a");
 
-    const section8 = gsap.timeline();
-
-    let section8Div = document.querySelector(".section8-card-wrap");
-    let section8EleWidth = (section8Div as HTMLElement).offsetWidth;
-
-    section8
-      .addLabel("a")
-      .to(".section8-horizon", { x: -515, duration: 3 }, "a")
-
-      .addLabel("b")
-      .to(
-        ".section8-card-wrap",
-        { x: -section8EleWidth + 330, duration: 3 },
-        "b"
-      )
-      .to(".section8-card-item:nth-child(3)", { x: 440, duration: 3 }, "b")
-      .to(".section8-card-item:nth-child(2)", { x: 880, duration: 3 }, "b")
-      .to(".section8-card-item:nth-child(1)", { x: 1320, duration: 3 }, "b")
-      .to(".unlock-img", { autoAlpha: 0, duration: 3 }, "b")
-      .from(".lock-img", { autoAlpha: 0, delay: 2, duration: 0.5 }, "b")
-      .to(".section8-card-item", { autoAlpha: 0, duration: 1 })
-      .to(".lock-img", { autoAlpha: 0, duration: 0.5 })
-      .from(".section8-card-text", { autoAlpha: 0 })
-
-      .addLabel("c")
-      .from(".section8-vertical", { autoAlpha: 0 }, "c")
-      .from(
-        ".section8-vertical",
-        { yPercent: 100, y: "-200", duration: 8, ease: "none" },
-        "c"
-      )
-      .from(".section8-vertical-card-lock", { autoAlpha: 0 })
-      .addLabel("d")
-      .to(
-        ".section8-vertical-card-item:nth-child(2)",
-        { x: -440, duration: 3 },
-        "d"
-      )
-      .to(
-        ".section8-vertical-card-item:nth-child(3)",
-        { x: -880, duration: 3 },
-        "d"
-      )
-      .to(
-        ".section8-vertical-card-item:nth-child(4)",
-        { x: -1320, duration: 3 },
-        "d"
-      )
-      .addLabel("e")
-      .from(
-        ".section8-vertical-card-lock .light",
-        { autoAlpha: 0, duration: 3 },
-        "e"
-      )
-      .from(".section8-vertical-end-text", { autoAlpha: 0, duration: 3 }, "e");
-
-    const secrion8_img_fade = () => {
-      for (let i = 0; i < section8Img.length; i++) {
-        section8Img.item(i)?.classList.add("fade");
-      }
-    };
-
-    const secrion8_icon_fade = () => {
-      for (let i = 0; i < section8Icon.length; i++) {
-        section8Icon.item(i)?.classList.add("fade");
-      }
-    };
-
-    const secrion8_name_fade = () => {
-      for (let i = 0; i < section8Profile.length; i++) {
-        section8Profile.item(i)?.classList.add("fade");
-      }
-    };
-
-    ScrollTrigger.create({
-      animation: section8,
-      trigger: ".section8",
-      start: "top top",
-      end: "+=9000",
-      markers: false,
-      scrub: true,
-      pin: true,
-      onEnter: function () {
-        secrion8_img_fade();
-        secrion8_icon_fade();
-        secrion8_name_fade();
-      },
-    });
-
-    const section8_vertical_bg = () => {
-      for (let i = 0; i < section8VerBg.length; i++) {
-        section8VerBg.item(i)?.classList.add("blur");
-      }
-    };
-
-    const section8_vertical_desc = () => {
-      for (let i = 0; i < section8VerDesc.length; i++) {
-        section8VerDesc.item(i)?.classList.add("fade");
-      }
-    };
-
-    const section8_vertical_icon = () => {
-      for (let i = 0; i < section8VerIcon.length; i++) {
-        section8VerIcon.item(i)?.classList.add("fade");
-      }
-    };
-
-    ScrollTrigger.create({
-      trigger: ".section8-vertical",
-      start: "190% top",
-      end: "200% bottom",
-      markers: false,
-      onEnter: function () {
-        section8_vertical_bg();
-        section8_vertical_desc();
-        section8_vertical_icon();
-      },
-    });
-
-    /**
-     * section9 관련 animation 코드
-     */
-    ScrollTrigger.create({
-      trigger: ".section9",
-      start: "-15% 55%",
-      end: "45% 55%",
-      markers: false,
-      anticipatePin: 1,
-      onEnter: function () {
-        body.classList.remove("dark");
-      },
-      onLeaveBack: function () {
-        body.classList.add("dark");
-      },
-    });
-
-    /**
-     * section10 관련 animation 코드
-     */
-    const section10 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section10",
-        start: "-10% 52%",
-        end: "45% 52%",
+      ScrollTrigger.create({
+        animation: section12,
+        trigger: ".section12",
+        start: "top top",
+        end: "+=2000",
+        pin: true,
         scrub: true,
-      },
-    });
+      });
 
-    section10
-      .addLabel("a")
-      .from(".section10-bg-before", 1, { xPercent: 100, duration: 1 }, "a")
-      .from(".section10-bg-after", { xPercent: -100, duration: 1 }, "a")
-      .to(".section10-text1", { xPercent: -70, duration: 1 }, "a")
-      .to(".section10-text3", { xPercent: 80, duration: 1 }, "a");
+      /**
+       * section13 관련 animation 코드
+       */
+      let section13bg = document.getElementById("section13-card-bg");
 
-    /**
-     * section11 관련 animation 코드
-     */
-    let section11bg = document.getElementById("section11-card-item-bg");
-    let section11arrow = document.getElementById("section11-arrow");
+      const section13 = gsap.timeline();
 
-    const section11 = gsap.timeline();
-    const section11_2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section11",
-        start: "0% 20%",
-        end: "100% 0%",
-      },
-    });
+      section13.to(".section13-inner", { xPercent: -100, x: "100vw" });
 
-    section11_2
-      .addLabel("a")
-      .to(
-        ".section11 .section11-card-desc-wrap",
-        {
-          autoAlpha: 1,
-          duration: 1,
+      ScrollTrigger.create({
+        animation: section13,
+        trigger: ".section13",
+        start: "top top",
+        end: "+=1500",
+        pin: true,
+        scrub: true,
+        onEnter: function () {
+          section13bg?.classList.add("blur");
         },
-        "a"
-      )
-      .to(
-        ".section11-card-icon.expand",
-        {
-          autoAlpha: 0,
-        },
-        "a"
-      )
-      .to(
-        ".section11-card-icon.contract",
-        {
-          autoAlpha: 1,
-        },
-        "a"
-      );
-
-    section11
-      .addLabel("a")
-      .to(
-        ".section11 .section11-inner",
-        { xPercent: -100, x: "100vw", duration: 4 },
-        "a"
-      )
-      .from(".section11 .section11-arrow", { autoAlpha: 0, duration: 1 }, "a")
-      .from(
-        ".section11 .down-title-item2",
-        { autoAlpha: 0, delay: 1, duration: 1 },
-        "a"
-      );
-
-    ScrollTrigger.create({
-      animation: section11,
-      trigger: ".section11",
-      start: "top top",
-      end: "+=1500",
-      pin: true,
-      markers: false,
-      scrub: true,
-      onEnter: function () {
-        section11bg?.classList.add("blur");
-      },
-      onLeave: function () {
-        section11arrow?.classList.add("fadein");
-      },
-      onEnterBack: function () {
-        section11arrow?.classList.add("fadeout");
-      },
-    });
-
-    /**
-     * section12 관련 animation 코드
-     */
-    const section12 = gsap.timeline();
-
-    section12
-      .from(".section12 .section12-text-wrap", { autoAlpha: 0, duration: 5 })
-      .from(".section12 .section12-arrow", { autoAlpha: 0, duration: 1 })
-      .addLabel("a")
-      .to(".section12 .section12-text-wrap", { autoAlpha: 0, duration: 1 }, "a")
-      .to(".section12 .section12-arrow", { autoAlpha: 0, duration: 1 }, "a");
-
-    ScrollTrigger.create({
-      animation: section12,
-      trigger: ".section12",
-      start: "top top",
-      end: "+=2000",
-      pin: true,
-      scrub: true,
-    });
-
-    /**
-     * section13 관련 animation 코드
-     */
-    let section13bg = document.getElementById("section13-card-bg");
-
-    const section13 = gsap.timeline();
-
-    section13.to(".section13-inner", { xPercent: -100, x: "100vw" });
-
-    ScrollTrigger.create({
-      animation: section13,
-      trigger: ".section13",
-      start: "top top",
-      end: "+=1500",
-      pin: true,
-      scrub: true,
-      onEnter: function () {
-        section13bg?.classList.add("blur");
-      },
-    });
-  }, []);
+      });
+    },
+    { scope: container }
+  );
 
   return (
-    <EbComponentStyle>
+    <EbComponentStyle ref={container}>
       <header id="header">
         <div id="logo" className="logo">
           <img src="./images/eb/ebc_logo.svg" alt="로고" />

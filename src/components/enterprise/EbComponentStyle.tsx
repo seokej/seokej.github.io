@@ -238,7 +238,7 @@ export const EbComponentStyle = styled.div`
   .section4 {
     position: relative;
     padding: 300px 0 320px;
-    background: url(/images/prove.jpg) no-repeat 50% / cover;
+    background: url(/images/eb/prove.jpg) no-repeat 50% / cover;
     overflow: hidden;
     color: #fff;
 
@@ -1059,15 +1059,15 @@ export const EbComponentStyle = styled.div`
           }
 
           .section8-vertical-card-item:nth-child(2) .section8-vertical-card-bg {
-            background: url(/images/image-sec-2-1.png) no-repeat top/cover;
+            background: url(/images/eb/image-sec-2-1.png) no-repeat top/cover;
           }
 
           .section8-vertical-card-item:nth-child(3) .section8-vertical-card-bg {
-            background: url(/images/image-sec-2-2.png) no-repeat top/cover;
+            background: url(/images/eb/image-sec-2-2.png) no-repeat top/cover;
           }
 
           .section8-vertical-card-item:nth-child(4) .section8-vertical-card-bg {
-            background: url(/images/image-sec-2-3.png) no-repeat top/cover;
+            background: url(/images/eb/image-sec-2-3.png) no-repeat top/cover;
           }
 
           .section8-vertical-card-bg {
@@ -1138,7 +1138,7 @@ export const EbComponentStyle = styled.div`
   .section10 {
     position: relative;
     padding: 300px 0 320px;
-    background: url(/images/prove2.jpg) no-repeat 50% / cover;
+    background: url(/images/eb/prove2.jpg) no-repeat 50% / cover;
     overflow: hidden;
     color: #fff;
 
@@ -1310,7 +1310,8 @@ export const EbComponentStyle = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background: url(/images/image-sec-3-3.png) no-repeat center / cover #ccc;
+        background: url(/images/eb/image-sec-3-3.png) no-repeat center / cover
+          #ccc;
         transition-delay: 0.2s;
         transition: all 0.3s;
         z-index: -1;
@@ -1464,7 +1465,7 @@ export const EbComponentStyle = styled.div`
   .section12 {
     position: relative;
     height: 100vh;
-    background: url(/images/creator-sec-bg.jpg) no-repeat center / cover;
+    background: url(/images/eb/creator-sec-bg.jpg) no-repeat center / cover;
 
     .section12-text-wrap {
       display: flex;
@@ -1555,7 +1556,7 @@ export const EbComponentStyle = styled.div`
           width: 100%;
           height: 100%;
           transition: all 0.3s;
-          background: url(/images/image-sec-4-1.png) no-repeat center / cover;
+          background: url(/images/eb/image-sec-4-1.png) no-repeat center / cover;
           z-index: -1;
         }
 
@@ -1825,7 +1826,7 @@ export const EbComponentStyle = styled.div`
       right: 100px;
       width: 50px;
       height: 50px;
-      background: #000 url(/images/top-btn.svg) no-repeat center;
+      background: #000 url(/images/eb/top-btn.svg) no-repeat center;
     }
   }
 
