@@ -1,3 +1,17 @@
+@import url('./font.css');
+
+* {
+    margin:0;
+    padding:0;
+    font:inherit;
+    color:inherit;
+}
+
+*, :after, :before {
+    box-sizing:border-box;
+    flex-shrink:0;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,26 +32,106 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+html, body {
+    height:auto; 
+    line-height: 1;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width:100%;
+}
+
+button { 
+    background:none;
+    border:0;
+    cursor:pointer;
+}
+
+a {
+    text-decoration:none
+}
+
+ul {
+    list-style:none;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+body {
+    min-width: 1300px;
+    color: #000;
+    font-size: 16px;
+    font-family: Archivo, 'Noto Sans KR', sans-serif;
+    background: #fff;
+}
+
+.logo {
+    filter: brightness(0) invert(0);
+    transition: all 0.4s;
+}
+
+.navLogo {
+    stroke: #000;
+    transition: all 0.4s;
+}
+
+body.dark .section6-top-desc-item .icon-box {
+    background-color: #fff;
+}
+
+body.dark {
+    color: #fff;
+    background: #000;
+    transition: background-color 0.5s;
+}
+
+body.dark .logo {
+    filter: brightness(0) invert(1);
+}
+
+body.dark .navLogo {
+    stroke: #fff;
+}
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+

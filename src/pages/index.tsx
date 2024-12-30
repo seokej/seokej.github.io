@@ -156,6 +156,49 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.project_inner}>
+          {/* 엔터프라이즈블록체인 */}
+          <div>
+            <div className={styles.project_img_wrap}>
+              <div
+                className={styles.project_img}
+                style={{ backgroundImage: `url(/images/portfolio/eb.gif)` }}
+              />
+            </div>
+            <div className={styles.project_inner_desc_wrap}>
+              <div className={styles.project_title}>엔터프라이즈블록체인</div>
+              <div className={styles.project_desc}>
+                GSAP을 이용한 interactive한 Animation 구현
+                <br />
+              </div>
+              <div className={styles.project_tag}>
+                <span>#REACT </span>
+                <span>#JavaScript </span>
+                <span>#Styled-components </span>
+                <span>#Gsap </span>
+                <span>#Gsap/ScrollTrigger </span>
+                <span>#PC(only) </span>
+              </div>
+              <div className={styles.project_btn_wrap}>
+                <Link
+                  target="_blank"
+                  href="/enterprise"
+                  className={styles.project_btn_view}
+                >
+                  View Site
+                  <img src="/images/portfolio/img_link.png" alt="링크이동" />
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://github.com/seokej/eb"
+                  className={styles.project_btn_git}
+                >
+                  github
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* 서울디지털재단 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -205,6 +248,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* 넷플릭스 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -250,6 +295,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Toss */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -295,6 +341,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 펄어비스 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -340,6 +387,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* 하이브인사이트 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -383,6 +432,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* 배달의민족 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -415,6 +466,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* 네이버웨일 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -451,6 +504,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* lottie */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -481,6 +536,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* 체리플 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -508,6 +565,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* 코끼리교실 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -539,6 +598,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 헬스딕셔너리 */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
@@ -569,6 +629,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* i-rept */}
           <div>
             <div className={styles.project_img_wrap}>
               <div
