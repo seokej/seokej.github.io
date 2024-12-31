@@ -1,34 +1,21 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import EbComponentStyle from "./EbComponentStyle";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-
-
 const EnterpriseComponent = () => {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true);
-  }, [])
-
   const container = useRef<HTMLDivElement>(null);
 
-  // if (typeof document !== "undefined") {
-  //   gsap.registerPlugin(useGSAP, ScrollTrigger);
-  // }  
-  
   useGSAP(
     () => {
-      
       gsap.registerPlugin(useGSAP, ScrollTrigger);
-      
+
       // if (typeof document !== "undefined") {
       //   gsap.registerPlugin(useGSAP, ScrollTrigger);
-      // }  
-      
+      // }
+
       document.body.classList.add("dark");
 
       let header = document.getElementById("header");
@@ -850,9 +837,9 @@ const EnterpriseComponent = () => {
           <h3 className="section6-bottom">
             DATA ID는 나만의 데이터 아이덴티티입니다
             <br />
-            이용자 개인이 데이터 소유권을 갖고 언제 어디서든 나를 증명하는 데이터
-            패스포트이자 다양한 서비스 이용을 가능케하는 패스워드리스 접속
-            방식입니다.
+            이용자 개인이 데이터 소유권을 갖고 언제 어디서든 나를 증명하는
+            데이터 패스포트이자 다양한 서비스 이용을 가능케하는 패스워드리스
+            접속 방식입니다.
           </h3>
         </section>
 
@@ -1055,8 +1042,8 @@ const EnterpriseComponent = () => {
                   맞는 일을 쉽고 빠르게 찾을 수 있고, 금융 서비스 이용이
                   가능해집니다.
                   <br />
-                  창작물의 권리를 지키고, 그 재능을 판매해 수익을 나누는 선순환의
-                  구조도
+                  창작물의 권리를 지키고, 그 재능을 판매해 수익을 나누는
+                  선순환의 구조도
                   <br />
                   만들 수 있습니다.
                 </div>
@@ -1112,7 +1099,10 @@ const EnterpriseComponent = () => {
                       </p>
                     </div>
                     <div className="section8-service-item">
-                      <img src="/images/eb/service-item-2.png" alt="어랏(Alot)" />
+                      <img
+                        src="/images/eb/service-item-2.png"
+                        alt="어랏(Alot)"
+                      />
                       <p className="section8-service-item-title">
                         크리에이터 커뮤니티 마켓 어랏(Alot)
                       </p>
@@ -1285,7 +1275,8 @@ const EnterpriseComponent = () => {
               증권을 거래했다면, 오늘날에는 탈중앙화가 빠르게 이루어져 <br />
               암호화폐와 NFT같은 가상자산 금융 채널이 늘고 있죠. <br />
               최근에는 긱워커와 크리에이터의 숫자와 소득이 증가하며 <br />
-              국내외 기업들이 빅데이터를 활용해 이들과 새로운 금융 서비스를 <br />
+              국내외 기업들이 빅데이터를 활용해 이들과 새로운 금융 서비스를{" "}
+              <br />
               발전시키겠다고 선언하는 사례가 늘고 있어요.
             </div>
           </div>
