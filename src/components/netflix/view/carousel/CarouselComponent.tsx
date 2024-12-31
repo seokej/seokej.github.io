@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Modal from "react-modal";
 import CarouselStyle from "./CarouselStyle.module.scss";
 import CarouselTitleComponent from "./CarouselTitleComponent";
 import { Navigation } from "swiper/modules";
@@ -11,7 +12,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { CarouselType } from "../../NetflixComponent";
-import Modal from "react-modal";
 
 interface CarouselProp {
   title: string; // Carousel 재사용을 위한 title props
@@ -184,7 +184,6 @@ const CarouselComponent = (props: CarouselProp) => {
                     src={item.imgSrc}
                     alt={item.title}
                   />
-
                   <Modal isOpen={modalIsOpen} style={customModalStyles}>
                     <div className={CarouselStyle.modalWrap}>
                       <div className={CarouselStyle.modalImgWrap}>
