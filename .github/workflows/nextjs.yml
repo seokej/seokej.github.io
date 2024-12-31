@@ -80,6 +80,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Debug Build Directory
+        run: |
+          echo "Current directory contents:"
+          ls -al
+          echo "Contents of 'out' directory:"
+          ls -al out || echo "'out' directory does not exist"
 
   # Deployment job
   deploy:
