@@ -1344,6 +1344,7 @@ export const EbComponentStyle = styled.div`
       animation: fadein 1s;
       animation-fill-mode: forwards;
     }
+
     .section11-arrow.fadeout {
       animation: fadeout 1s;
       animation-fill-mode: forwards;
@@ -1351,10 +1352,66 @@ export const EbComponentStyle = styled.div`
 
     .down-arrow {
       display: flex;
+      justify-content: center;
       margin-bottom: 25px;
     }
 
     .down-arrow-item {
+      display: block;
+      width: 27px;
+      height: 27px;
+      margin-right: -6px;
+      border-style: solid;
+      border-width: 8px;
+      border-left: 0;
+      border-bottom: 0;
+      animation: arrow 1s infinite alternate;
+      transform: rotate(45deg);
+    }
+
+    .arrow1 {
+      border-image: linear-gradient(60deg, #e657af 60%, #0049ff 160%);
+      border-image-slice: 1;
+    }
+
+    .arrow2 {
+      border-image: linear-gradient(60deg, #e657af 20%, #0049ff 145%);
+      border-image-slice: 1;
+      animation-delay: .2s;
+    }
+
+    .arrow3 {
+      border-image: linear-gradient(60deg, #e657af, #0049ff 130%);
+      border-image-slice: 1;
+      animation-delay: .3s;
+    }
+
+    .arrow4 {
+      border-image: linear-gradient(50deg, #e657af, #0049ff 100%);
+      border-image-slice: 1;
+      animation-delay: .4s;
+    }
+
+    .arrow5 {
+      border-image: linear-gradient(50deg, #e657af, #0049ff 80%);
+      border-image-slice: 1;
+      animation-delay: .5s;
+    }
+
+    .arrow6 {
+      border-image: linear-gradient(50deg, #0049ff 45%, #43cf2e 135%);
+      border-image-slice: 1;
+      animation-delay: .6s;
+    }
+
+    .arrow7 {
+      border-image: linear-gradient(51deg, #0049ff, #43cf2e 75%);
+      border-image-slice: 1;
+      animation-delay: .7s;
+    }
+
+
+    /* .down-arrow-item {
       position: relative;
       display: block;
       width: 27px;
@@ -1416,7 +1473,7 @@ export const EbComponentStyle = styled.div`
       width: 30px;
       height: 30px;
       background: #fff;
-    }
+    } */
 
     .down-title {
       position: relative;

@@ -179,14 +179,14 @@ export default function Home() {
                 <span>#PC(only) </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                {/* <Link
+                <Link
                   target="_blank"
                   href="/enterprise"
                   className={styles.project_btn_view}
                 >
                   View Site
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </Link> */}
+                </Link> 
                 <Link
                   target="_blank"
                   href="https://github.com/seokej/eb"

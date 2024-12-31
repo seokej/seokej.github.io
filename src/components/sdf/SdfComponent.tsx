@@ -10,7 +10,7 @@ import { Noto_Sans_KR } from "next/font/google";
 
 const noto_Sans = Noto_Sans_KR({
   subsets: ["latin"],
-  weight: "800",
+  weight: "900",
 });
 
 const SdfComponent = () => {
