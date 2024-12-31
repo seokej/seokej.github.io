@@ -77,7 +77,9 @@ jobs:
       - name: Build with Next.js
         run: |
         ${{ steps.detect-package-manager.outputs.runner }} next build
-        ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Export with Next.js
+        run: |
+          ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Debug Build and Export
         run: |
           echo "Contents of current directory:"
