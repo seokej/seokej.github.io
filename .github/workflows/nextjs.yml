@@ -76,8 +76,16 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: |
-    ${{ steps.detect-package-manager.outputs.runner }} next build
-    ${{ steps.detect-package-manager.outputs.runner }} next export
+        ${{ steps.detect-package-manager.outputs.runner }} next build
+        ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Debug Before Upload
+        run: |
+          echo "Current directory contents:"
+          ls -al
+          echo "Contents of '.next' directory:"
+          ls -al .next || echo "'.next' directory does not exist"
+          echo "Contents of 'out' directory:"
+          ls -al out || echo "'out' directory does not exist"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
