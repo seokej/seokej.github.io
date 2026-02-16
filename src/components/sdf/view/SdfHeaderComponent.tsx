@@ -106,8 +106,8 @@ const SdfHeaderComponent = () => {
                     <Image
                       src="/images/sdf/gnb/ico_gnb_blog.png"
                       alt="블로그"
-                      width={24}
-                      height={24}
+                      width={33}
+                      height={33}
                     />
                   </a>
                 </li>
@@ -116,8 +116,8 @@ const SdfHeaderComponent = () => {
                     <Image
                       src="/images/sdf/gnb/ico_gnb_fb.png"
                       alt="페이스북"
-                      width={24}
-                      height={24}
+                      width={33}
+                      height={33}
                     />
                   </a>
                 </li>
@@ -126,8 +126,8 @@ const SdfHeaderComponent = () => {
                     <Image
                       src="/images/sdf/gnb/ico_gnb_yt.png"
                       alt="유튜브"
-                      width={24}
-                      height={24}
+                      width={33}
+                      height={33}
                     />
                   </a>
                 </li>
@@ -136,8 +136,8 @@ const SdfHeaderComponent = () => {
                     <Image
                       src="/images/sdf/gnb/ico_gnb_in.png"
                       alt="인스타그램"
-                      width={24}
-                      height={24}
+                      width={33}
+                      height={33}
                     />
                   </a>
                 </li>
@@ -146,8 +146,8 @@ const SdfHeaderComponent = () => {
                     <Image
                       src="/images/sdf/gnb/ico_report.jpg"
                       alt="부정부패신고"
-                      width={24}
-                      height={24}
+                      width={107}
+                      height={44}
                     />
                   </a>
                 </li>
@@ -156,8 +156,8 @@ const SdfHeaderComponent = () => {
                     <Image
                       src="/images/sdf/gnb/ico_seoul.jpg"
                       alt="동행매력서울특별시"
-                      width={24}
-                      height={24}
+                      width={107}
+                      height={44}
                     />
                   </a>
                 </li>
