@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import styles from "./SdfHeaderComponent.module.scss";
 import SdfMoHeaderComponent from "./SdfMoHeaderComponent";
 
@@ -62,13 +64,13 @@ const SdfHeaderComponent = () => {
     <Fragment>
       <header className={styles.header} role="banner">
         <div className={styles.header__inner}>
-          <a
+          <Link
             href="/"
             className={styles.logo}
             aria-label="서울디지털재단 홈페이지로 이동"
           >
             <span className="blind">서울디지털재단</span>
-          </a>
+          </Link>
           <nav
             className={styles.gnbWrap}
             role="navigation"
@@ -101,40 +103,61 @@ const SdfHeaderComponent = () => {
               <ul className={styles.gnbTop__snsMenu}>
                 <li>
                   <a href="#">
-                    <img src="/images/sdf/gnb/ico_gnb_blog.png" alt="블로그" />
+                    <Image
+                      src="/images/sdf/gnb/ico_gnb_blog.png"
+                      alt="블로그"
+                      width={24}
+                      height={24}
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img src="/images/sdf/gnb/ico_gnb_fb.png" alt="페이스북" />
+                    <Image
+                      src="/images/sdf/gnb/ico_gnb_fb.png"
+                      alt="페이스북"
+                      width={24}
+                      height={24}
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img src="/images/sdf/gnb/ico_gnb_yt.png" alt="유튜브" />
+                    <Image
+                      src="/images/sdf/gnb/ico_gnb_yt.png"
+                      alt="유튜브"
+                      width={24}
+                      height={24}
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img
+                    <Image
                       src="/images/sdf/gnb/ico_gnb_in.png"
                       alt="인스타그램"
+                      width={24}
+                      height={24}
                     />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img
+                    <Image
                       src="/images/sdf/gnb/ico_report.jpg"
                       alt="부정부패신고"
+                      width={24}
+                      height={24}
                     />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img
+                    <Image
                       src="/images/sdf/gnb/ico_seoul.jpg"
                       alt="동행매력서울특별시"
+                      width={24}
+                      height={24}
                     />
                   </a>
                 </li>
@@ -331,9 +354,11 @@ const SdfHeaderComponent = () => {
                     }}
                     className={styles.gnbBottom__searchBtn}
                   >
-                    <img
+                    <Image
                       src="/images/sdf/gnb/ico_gnb_search.png"
                       alt="검색창 열림"
+                      width={24}
+                      height={24}
                     />
                     <span className="blind">검색 버튼</span>
                   </button>
@@ -396,7 +421,12 @@ const SdfHeaderComponent = () => {
               placeholder="검색어를 입력하세요"
             />
             <button type="submit" className={styles.header__searchBtn}>
-              <img src="/images/sdf/ico/ico_search.png" alt="검색버튼" />
+              <Image
+                src="/images/sdf/ico/ico_search.png"
+                alt="검색버튼"
+                width={24}
+                height={24}
+              />
             </button>
           </div>
 
@@ -409,11 +439,14 @@ const SdfHeaderComponent = () => {
             className={styles.header__searchBtnClose}
             aria-label="검색창 닫기"
           >
-            <img
-              src="/images/sdf/ico/ico_close.png"
-              alt=""
-              aria-hidden="true"
-            />
+            <span aria-hidden="true">
+              <Image
+                src="/images/sdf/ico/ico_close.png"
+                alt=""
+                width={24}
+                height={24}
+              />
+            </span>
           </button>
         </div>
 
