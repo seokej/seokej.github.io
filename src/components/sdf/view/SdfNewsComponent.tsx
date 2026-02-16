@@ -19,31 +19,26 @@ interface SlideNewsItemType {
  * News Data를 반환하는 함수
  */
 export const getSdfNews = async () => {
-  // 환경에 따라 API URL 결정
+  // 로컬: Next.js API 라우트 사용 / 운영(GitHub Pages): 정적 JSON 사용 (API 라우트 미지원)
   const isLocal =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1";
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1");
   const apiUrl = isLocal
     ? "http://localhost:3000/api/getSdfNews"
-    : "https://seokej.github.io/api/getSdfNews";
+    : "/getSdfNews.json";
 
   const res = await axios.get(apiUrl);
+  const raw = res.data;
 
   const NewsData: SlideNewsItemType[] = [];
-
-  /**
-   * 그냥 res.data를 반환해도 되지만
-   * Object.keys ~ forEach문을 통해
-   * NewsData의 빈배열에 push,
-   * type을 통해 한번 더 data 확인
-   * type에 맞는 data가 안들어갈 경우 오류 검출
-   */
-  Object.keys(res.data).forEach((key) => {
+  const list = Array.isArray(raw) ? raw : Object.keys(raw).map((k) => raw[k]);
+  list.forEach((item: SlideNewsItemType) => {
     NewsData.push({
-      type: res.data[key].type,
-      title: res.data[key].title,
-      date: res.data[key].date,
-      img: res.data[key].img,
+      type: item.type,
+      title: item.title,
+      date: item.date,
+      img: item.img,
     });
   });
 
