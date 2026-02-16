@@ -19,28 +19,16 @@ const SdfHeaderComponent = () => {
     }
   }, [isSearchBtnClick]);
 
-  useEffect(() => {
-    const ele = document.getElementById("gnbBottom");
-    const ele_overlay = document.getElementById("overlay");
+  /**
+   * 드롭다운 메뉴 마우스/키보드 제어를 위한 핸들러
+   */
+  const handleGnbMouseEnter = () => {
+    setIsActive(true);
+  };
 
-    // 마우스가 'gnbBottom'영역에 있을 때 dropMenu가 노출되도록
-    if (ele) {
-      ele.addEventListener("mouseenter", () => {
-        setIsActive(true);
-      });
-    }
-
-    // 마우스가 'overlay'영역에 있을 때 dropMenu가 노출되도록
-    if (!ele_overlay) return;
-    ele_overlay.addEventListener("mouseenter", () => {
-      setIsActive(true);
-    });
-
-    // 마우스가 'overlay'영역에서 벗어났을때 dropMenu가 비노출되도록
-    ele_overlay.addEventListener("mouseleave", () => {
-      setIsActive(false);
-    });
-  }, []);
+  const handleGnbMouseLeave = () => {
+    setIsActive(false);
+  };
 
   /**
    * 검색 버튼 클릭했을때 동작하는 함수
@@ -51,11 +39,14 @@ const SdfHeaderComponent = () => {
   };
 
   /**
-   * gnb에 enter키를 사용하면 dropMenu가 노출되도록 하는 함수
+   * gnb에 enter / space 키를 사용하면 dropMenu가 노출되도록 하는 함수
    * @param e
    */
-  const onKeyUp = (e: any) => {
-    if (e.keyCode === 13) {
+  const onKeyUp = (
+    e: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       setIsActive(true);
     }
   };
@@ -69,12 +60,20 @@ const SdfHeaderComponent = () => {
 
   return (
     <Fragment>
-      <header className={styles.header}>
+      <header className={styles.header} role="banner">
         <div className={styles.header__inner}>
-          <a className={styles.logo}>
+          <a
+            href="/"
+            className={styles.logo}
+            aria-label="서울디지털재단 홈페이지로 이동"
+          >
             <span className="blind">서울디지털재단</span>
           </a>
-          <nav className={styles.gnbWrap}>
+          <nav
+            className={styles.gnbWrap}
+            role="navigation"
+            aria-label="주요 메뉴"
+          >
             <div className={styles.gnbTop}>
               <ul className={styles.gnbTop__menu}>
                 <li className={styles.gnbTop__menuList}>
@@ -86,12 +85,16 @@ const SdfHeaderComponent = () => {
                   <a href="#">로그인</a>
                 </li>
                 <li className={styles.gnbTop__menuList}>
-                  <a href="#" className={styles.gnbTop__menuItemKor}>
+                  <button
+                    type="button"
+                    className={styles.gnbTop__menuItemKor}
+                    aria-current="page"
+                  >
                     KOR
-                  </a>
+                  </button>
                 </li>
                 <li className={styles.gnbTop__menuList}>
-                  <a href="#">ENG</a>
+                  <button type="button">ENG</button>
                 </li>
               </ul>
 
@@ -139,17 +142,24 @@ const SdfHeaderComponent = () => {
             </div>
 
             <div id="mainHeader">
-              <ul id="gnbBottom" className={styles.gnbBottom}>
+              <ul
+                id="gnbBottom"
+                className={styles.gnbBottom}
+                aria-label="주요 서비스 메뉴"
+                onMouseEnter={handleGnbMouseEnter}
+              >
                 <li className={styles.gnbBottom__item}>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     className={styles.gnbBottom__itemLink}
+                    aria-haspopup="true"
+                    aria-expanded={isActive}
                     onKeyUp={(e) => {
                       onKeyUp(e);
                     }}
                   >
                     주요사업
-                  </a>
+                  </button>
                   <ul
                     className={
                       isActive
@@ -169,15 +179,17 @@ const SdfHeaderComponent = () => {
                   </ul>
                 </li>
                 <li className={styles.gnbBottom__item}>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     className={styles.gnbBottom__itemLink}
+                    aria-haspopup="true"
+                    aria-expanded={isActive}
                     onKeyUp={(e) => {
                       onKeyUp(e);
                     }}
                   >
                     소통마당
-                  </a>
+                  </button>
                   <ul
                     className={
                       isActive
@@ -203,15 +215,17 @@ const SdfHeaderComponent = () => {
                   </ul>
                 </li>
                 <li className={styles.gnbBottom__item}>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     className={styles.gnbBottom__itemLink}
+                    aria-haspopup="true"
+                    aria-expanded={isActive}
                     onKeyUp={(e) => {
                       onKeyUp(e);
                     }}
                   >
                     지식정보
-                  </a>
+                  </button>
                   <ul
                     className={
                       isActive
@@ -234,15 +248,17 @@ const SdfHeaderComponent = () => {
                   </ul>
                 </li>
                 <li className={styles.gnbBottom__item}>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     className={styles.gnbBottom__itemLink}
+                    aria-haspopup="true"
+                    aria-expanded={isActive}
                     onKeyUp={(e) => {
                       onKeyUp(e);
                     }}
                   >
                     알림마당
-                  </a>
+                  </button>
                   <ul
                     className={
                       isActive
@@ -268,15 +284,17 @@ const SdfHeaderComponent = () => {
                   </ul>
                 </li>
                 <li className={styles.gnbBottom__item}>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     className={styles.gnbBottom__itemLink}
+                    aria-haspopup="true"
+                    aria-expanded={isActive}
                     onKeyUp={(e) => {
                       onKeyUp(e);
                     }}
                   >
                     기관소개
-                  </a>
+                  </button>
                   <ul
                     className={
                       isActive
@@ -303,7 +321,8 @@ const SdfHeaderComponent = () => {
                 </li>
                 <li>
                   <button
-                    role="search"
+                    type="button"
+                    aria-label="통합 검색 열기"
                     onClick={() => {
                       handleSearchBtn();
                     }}
@@ -348,21 +367,32 @@ const SdfHeaderComponent = () => {
               ? styles.gnbBottom__overlay__active
               : styles.gnbBottom__overlay
           }
+          aria-hidden={!isActive}
+          onMouseEnter={handleGnbMouseEnter}
+          onMouseLeave={handleGnbMouseLeave}
         />
 
         <div
           className={
             isSearchBtnClick ? styles.search__wrap__active : styles.search__wrap
           }
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="header__search-label"
+          aria-hidden={!isSearchBtnClick}
         >
           <div className={styles.search__inner}>
-            <label htmlFor="hader__search" className={styles.header__search}>
+            <label
+              id="header__search-label"
+              htmlFor="header__search"
+              className={styles.header__search}
+            >
               검색어를 입력하세요
             </label>
             <input
               type="text"
-              id="hader__search"
-              name="hader__search"
+              id="header__search"
+              name="header__search"
               placeholder="검색어를 입력하세요"
             />
             <button type="submit" className={styles.header__searchBtn}>
@@ -371,13 +401,19 @@ const SdfHeaderComponent = () => {
           </div>
 
           <button
+            type="button"
             onClick={(e) => {
               e.preventDefault();
               setIsSearchBtnClick(false);
             }}
             className={styles.header__searchBtnClose}
+            aria-label="검색창 닫기"
           >
-            <img src="/images/sdf/ico/ico_close.png" alt="닫기버튼" />
+            <img
+              src="/images/sdf/ico/ico_close.png"
+              alt=""
+              aria-hidden="true"
+            />
           </button>
         </div>
 

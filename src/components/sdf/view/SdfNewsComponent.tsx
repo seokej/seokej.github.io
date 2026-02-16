@@ -19,7 +19,15 @@ interface SlideNewsItemType {
  * News Data를 반환하는 함수
  */
 export const getSdfNews = async () => {
-  const res = await axios.get("http://localhost:3000/api/getSdfNews");
+  // 환경에 따라 API URL 결정
+  const isLocal =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
+  const apiUrl = isLocal
+    ? "http://localhost:3000/api/getSdfNews"
+    : "https://seokej.github.io/api/getSdfNews";
+
+  const res = await axios.get(apiUrl);
 
   const NewsData: SlideNewsItemType[] = [];
 
