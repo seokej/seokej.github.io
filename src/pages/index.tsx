@@ -186,7 +186,7 @@ export default function Home() {
                 >
                   View Site
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </Link> 
+                </Link>
                 <Link
                   target="_blank"
                   href="https://github.com/seokej/eb"
@@ -321,22 +321,22 @@ export default function Home() {
                 <span>#접근성 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <a
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/toss_m/index.html"
+                  href="/toss"
                   className={styles.project_btn_view}
                 >
                   Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/toss_s/index.html"
+                  href="/toss?variant=sub"
                   className={styles.project_btn_view}
                 >
                   Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -368,22 +368,22 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <a
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/pearlabyss_m/index.html"
+                  href="/pearlabyss?variant=main"
                   className={styles.project_btn_view}
                 >
                   Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/pearlabyss_s/index.html"
+                  href="/pearlabyss?variant=sub"
                   className={styles.project_btn_view}
                 >
                   Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -413,22 +413,22 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <a
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/hi_m/index.html"
+                  href="/hi"
                   className={styles.project_btn_view}
                 >
                   Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/hi_s/index.html"
+                  href="/hi?variant=sub"
                   className={styles.project_btn_view}
                 >
                   Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -455,14 +455,14 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <a
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/bm_m/index.html"
+                  href="/bm?variant=Main"
                   className={styles.project_btn_view}
                 >
                   Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -485,22 +485,22 @@ export default function Home() {
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
-                <a
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/nw_m/index.html"
+                  href="/nw?variant=main"
                   className={styles.project_btn_view}
                 >
                   Main Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
-                  href="http://sej.dothome.co.kr/nw_s/index.html"
+                  href="/nw?variant=sub"
                   className={styles.project_btn_view}
                 >
                   Sub Page
                   <img src="/images/portfolio/img_link.png" alt="링크이동" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

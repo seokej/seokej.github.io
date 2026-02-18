@@ -2,6 +2,9 @@
 
 const nextConfig = {
   transpilePackages: ["gsap"],
+  compiler: {
+    styledComponents: true,
+  },
   reactStrictMode: true,
   output: "export",
 };
