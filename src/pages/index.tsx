@@ -313,9 +313,9 @@ export default function Home() {
                 WAI-ARIA를 이용해 웹 접근성 향상
               </div>
               <div className={styles.project_tag}>
-                <span>#HTML </span>
-                <span>#CSS </span>
-                <span>#jQuery </span>
+                <span>#REACT </span>
+                <span>#Next.js </span>
+                <span>#Styled-components </span>
                 <span>#GSAP </span>
                 <span>#반응형 </span>
                 <span>#접근성 </span>
@@ -360,9 +360,9 @@ export default function Home() {
                 jQuery와 css를 이용한 애니메이션 구현 <br />
               </div>
               <div className={styles.project_tag}>
-                <span>#HTML </span>
-                <span>#CSS </span>
-                <span>#jQuery </span>
+                <span>#REACT </span>
+                <span>#Next.js </span>
+                <span>#Styled-components </span>
                 <span>#Swiper </span>
                 <span>#Aos </span>
                 <span>#반응형 </span>
@@ -405,9 +405,9 @@ export default function Home() {
                 <br />
               </div>
               <div className={styles.project_tag}>
-                <span>#HTML </span>
-                <span>#CSS </span>
-                <span>#jQuery </span>
+                <span>#REACT </span>
+                <span>#Next.js </span>
+                <span>#Styled-components </span>
                 <span>#Swiper </span>
                 <span>#fullpage </span>
                 <span>#반응형 </span>
@@ -448,9 +448,9 @@ export default function Home() {
                 CSS 애니메이션 활용
               </div>
               <div className={styles.project_tag}>
-                <span>#HTML </span>
-                <span>#CSS </span>
-                <span>#jQuery </span>
+                <span>#REACT </span>
+                <span>#Next.js </span>
+                <span>#Styled-components </span>
                 <span>#fullpage </span>
                 <span>#반응형 </span>
               </div>
@@ -479,9 +479,9 @@ export default function Home() {
               <div className={styles.project_title}>네이버웨일</div>
               <div className={styles.project_desc}>테이블태그 활용</div>
               <div className={styles.project_tag}>
-                <span>#HTML </span>
-                <span>#CSS </span>
-                <span>#jQuery </span>
+                <span>#REACT </span>
+                <span>#Next.js </span>
+                <span>#Styled-components </span>
                 <span>#반응형 </span>
               </div>
               <div className={styles.project_btn_wrap}>
