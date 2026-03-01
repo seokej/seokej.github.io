@@ -26,6 +26,7 @@ const CarouselComponent = (props: CarouselProp) => {
 
   const [realIndex, setRealIndex] = useState(0);
   const [mouseEnterIndex, setMouseEnterIndex] = useState(0);
+  const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
 
   // modal 좌표
   const [isX, setIsX] = useState(0);
@@ -43,6 +44,17 @@ const CarouselComponent = (props: CarouselProp) => {
       navigationPrevRef.current.style.display = "flex";
     }
   }, [realIndex]);
+
+  // 페이지 스크롤(마우스 휠) 시 모달 닫기
+  useEffect(() => {
+    const closeModal = () => setOpenModalIndex(null);
+    window.addEventListener("scroll", closeModal, { capture: true });
+    window.addEventListener("wheel", closeModal, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", closeModal, { capture: true });
+      window.removeEventListener("wheel", closeModal);
+    };
+  }, []);
 
   // 좌표
   const getPosition = (index: number) => {
@@ -102,6 +114,7 @@ const CarouselComponent = (props: CarouselProp) => {
           onActiveIndexChange={(swiper: any) => {
             setRealIndex(swiper.realIndex);
           }}
+          onSlideChangeTransitionStart={() => setOpenModalIndex(null)}
           navigation={{ prevEl: "#prevBtn", nextEl: "#nextBtn" }}
           breakpoints={{
             1400: {
@@ -156,8 +169,7 @@ const CarouselComponent = (props: CarouselProp) => {
           </>
 
           {data.map((item: CarouselType, index: number) => {
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const [modalIsOpen, setModalIsOpen] = useState(false);
+            const modalIsOpen = openModalIndex === index;
 
             return (
               <SwiperSlide
@@ -166,17 +178,13 @@ const CarouselComponent = (props: CarouselProp) => {
                 style={{
                   cursor: "pointer",
                 }}
-                onMouseOver={() => {
-                  setModalIsOpen(true);
-                }}
-                onMouseLeave={(e: any) => {
-                  setModalIsOpen(false);
-                }}
+                onMouseOver={() => setOpenModalIndex(index)}
+                onMouseLeave={() => setOpenModalIndex(null)}
               >
                 <div>
                   <img
                     onMouseEnter={() => {
-                      onMouseEnter(index), setMouseEnterIndex(index);
+                      (onMouseEnter(index), setMouseEnterIndex(index));
                     }}
                     ref={(itself: any) => (imgRef.current[index] = itself)}
                     id="modalImg"
