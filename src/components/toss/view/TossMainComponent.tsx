@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
@@ -11,6 +11,70 @@ const TossMainComponent = () => {
   const [activeTab, setActiveTab] = useState("tab-1");
   const [activeArticleTab, setActiveArticleTab] = useState("tab-19");
   const [activeMobileTab, setActiveMobileTab] = useState("tab-10");
+  const articleYearRef = useRef<HTMLDivElement>(null);
+  const mTimelineYearRef = useRef<HTMLDivElement>(null);
+  const mIndicatorRef = useRef<HTMLDivElement>(null);
+  const mYearButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const mIndicatorLeftRef = useRef(0);
+
+  const getMobileTabIndex = (tabId: string) =>
+    parseInt(tabId.replace("tab-", ""), 10) - 10;
+
+  // 모바일 타임라인: #m-indicator2 슬라이드 + 연도 탭 가운데 스크롤 (index.html animatethisline)
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const index = getMobileTabIndex(activeMobileTab);
+    const container = mTimelineYearRef.current;
+    const indicator = mIndicatorRef.current;
+    const button = mYearButtonRefs.current[index];
+    if (!container || !indicator || !button) return;
+
+    const destination = button.offsetLeft;
+    const start = mIndicatorLeftRef.current;
+
+    const animation = indicator.animate(
+      [
+        { transform: `translateX(${start}px)` },
+        { transform: `translateX(${destination}px)` },
+      ],
+      {
+        duration: start === destination ? 0 : 200,
+        easing: "ease-in-out",
+        fill: "forwards",
+      },
+    );
+
+    animation.onfinish = () => {
+      mIndicatorLeftRef.current = destination;
+      indicator.style.transform = `translateX(${destination}px)`;
+    };
+
+    const scrollLeft =
+      button.offsetLeft + button.offsetWidth / 2 - container.clientWidth / 2;
+    container.scrollTo({
+      left: Math.max(0, scrollLeft),
+      behavior: "smooth",
+    });
+  }, [activeMobileTab]);
+
+  // 모바일: 선택된 연도 탭이 가운데 오도록 가로 스크롤 (main.js)
+  useEffect(() => {
+    const container = articleYearRef.current;
+    if (!container || typeof window === "undefined") return;
+    if (window.innerWidth > 768) return;
+
+    const activeBtn = container.querySelector(
+      ".a-year.current",
+    ) as HTMLElement | null;
+    if (!activeBtn) return;
+
+    const scrollLeft =
+      activeBtn.offsetLeft +
+      activeBtn.offsetWidth / 2 -
+      container.clientWidth / 2;
+    container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+  }, [activeArticleTab]);
 
   useEffect(() => {
     // toss_main.js의 로직을 React useEffect로 변환
@@ -548,7 +612,11 @@ const TossMainComponent = () => {
 
               {/* Mobile Timeline */}
               <div className="m-timeline-year-wrap">
-                <div className="m-timeline-year m_scroll ready2" role="tablist">
+                <div
+                  className="m-timeline-year m_scroll ready2"
+                  role="tablist"
+                  ref={mTimelineYearRef}
+                >
                   {[
                     "2021",
                     "2020",
@@ -559,33 +627,31 @@ const TossMainComponent = () => {
                     "2015",
                     "2014",
                     "2013",
-                  ].map((year, idx) => (
-                    <button
-                      key={year}
-                      className={`m-year ${idx === 0 ? "first current" : ""}`}
-                      role="tab"
-                      aria-selected={activeMobileTab === `tab-${idx + 10}`}
-                      data-tab={`tab-${idx + 10}`}
-                      onClick={() => setActiveMobileTab(`tab-${idx + 10}`)}
-                    >
-                      {year}
-                    </button>
-                  ))}
-                  <div className="m-indicator" id="m-indicator2"></div>
+                  ].map((year, idx) => {
+                    const tabId = `tab-${idx + 10}`;
+                    const isActive = activeMobileTab === tabId;
+                    return (
+                      <button
+                        key={year}
+                        ref={(el) => {
+                          mYearButtonRefs.current[idx] = el;
+                        }}
+                        className={`m-year ${idx === 0 ? "first" : ""} ${isActive ? "current" : ""}`}
+                        role="tab"
+                        aria-selected={isActive}
+                        data-tab={tabId}
+                        onClick={() => setActiveMobileTab(tabId)}
+                      >
+                        {year}
+                      </button>
+                    );
+                  })}
+                  <div
+                    className="m-indicator"
+                    id="m-indicator2"
+                    ref={mIndicatorRef}
+                  ></div>
                 </div>
-
-                <input
-                  type="text"
-                  className="hidden"
-                  id="txtstart"
-                  defaultValue="0"
-                />
-                <input
-                  type="text"
-                  className="hidden"
-                  id="txtdestination"
-                  defaultValue="0"
-                />
               </div>
 
               <div className="m-timeline-content-wrap">
@@ -800,7 +866,15 @@ const TossMainComponent = () => {
                   banner: "고객이 반드시, 토스에서 멋진 경험을 할 수 있도록",
                 },
               ].map((card, idx) => (
-                <div key={idx} className="content-wrap col-sm-6 col-12">
+                <div
+                  key={idx}
+                  className={`content-wrap col-sm-6 col-12 ${
+                    card.className === "payment" ||
+                    card.className === "insurance"
+                      ? "content-wrap--long"
+                      : ""
+                  }`}
+                >
                   <div className="image-wrap" onClick={handleImageWrapClick}>
                     <div className={card.className}></div>
                     <p className="mini-title">{card.title}</p>
@@ -857,8 +931,13 @@ const TossMainComponent = () => {
                     key={idx}
                     src={`/images/toss/${logo}.jpg`}
                     alt={logo.replace("logo-", "")}
-                    width={150}
-                    height={60}
+                    width={211}
+                    height={102}
+                    style={{
+                      width: "211px",
+                      height: "102px",
+                      maxWidth: "100%",
+                    }}
                   />
                 ))}
               </div>
@@ -872,20 +951,28 @@ const TossMainComponent = () => {
                 <span>언론 속의 토스</span>
 
                 <div className="article-year-wrap">
-                  <div className="article-year" role="tablist">
+                  <div
+                    className="article-year ready"
+                    role="tablist"
+                    ref={articleYearRef}
+                  >
                     {["2021", "2020", "2019", "2018", "2017"].map(
-                      (year, idx) => (
-                        <button
-                          key={year}
-                          className={`a-year ${idx === 0 ? "first current" : ""}`}
-                          role="tab"
-                          aria-selected={activeArticleTab === `tab-${19 + idx}`}
-                          data-tab={`tab-${19 + idx}`}
-                          onClick={() => setActiveArticleTab(`tab-${19 + idx}`)}
-                        >
-                          {year}
-                        </button>
-                      ),
+                      (year, idx) => {
+                        const tabId = `tab-${19 + idx}`;
+                        const isActive = activeArticleTab === tabId;
+                        return (
+                          <button
+                            key={year}
+                            className={`a-year ${idx === 0 ? "first" : ""} ${isActive ? "current" : ""}`}
+                            role="tab"
+                            aria-selected={isActive}
+                            data-tab={tabId}
+                            onClick={() => setActiveArticleTab(tabId)}
+                          >
+                            {year}
+                          </button>
+                        );
+                      },
                     )}
                     <div className="indicator"></div>
                   </div>

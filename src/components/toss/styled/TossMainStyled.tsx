@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const TossMainStyled = styled.div`
+  a {
+    text-decoration: none;
+  }
+
   header {
     position: fixed;
     background-color: transparent;
@@ -872,6 +876,16 @@ export const TossMainStyled = styled.div`
     justify-content: center;
     height: 688px;
     background-color: #f9fafb;
+    box-sizing: border-box;
+  }
+
+  .world-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+    box-sizing: border-box;
   }
 
   .sub-text5 {
@@ -902,8 +916,10 @@ export const TossMainStyled = styled.div`
   }
 
   .world img {
-    width: 211px;
-    height: 102px;
+    width: 211px !important;
+    height: 102px !important;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   #section7 {
@@ -915,12 +931,26 @@ export const TossMainStyled = styled.div`
     padding: 122px 0px 138px;
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
+    width: 100%;
+  }
+
+  #section7 > div {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .article-wrap {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .title-wrap {
     display: flex;
     width: 960px;
     margin-bottom: 68px;
+    box-sizing: border-box;
   }
 
   .title-wrap span {
@@ -991,7 +1021,8 @@ export const TossMainStyled = styled.div`
     bottom: 0;
   }
 
-  .ready .current {
+  .ready .current,
+  .a-year.current {
     color: #191f28 !important;
     font-weight: bold;
     border-radius: 21px;
@@ -1015,6 +1046,7 @@ export const TossMainStyled = styled.div`
 
   .article-inner {
     display: none;
+    padding-left: 0px;
   }
 
   .article-inner.current {
@@ -1235,6 +1267,40 @@ export const TossMainStyled = styled.div`
 
   /***** md *****/
   @media (max-width: 768px) {
+    #section6 {
+      height: auto;
+      padding: 75px 24px;
+    }
+
+    .world-wrap {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .sub-text5 {
+      margin-bottom: 41px;
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .world {
+      width: 100%;
+    }
+
+    .world img {
+      width: 163.42px !important;
+      height: 79px !important;
+    }
+
+    #section7 {
+      overflow: hidden;
+      padding: 80px 0 100px;
+    }
+
+    #section7 > div {
+      max-width: 100%;
+    }
+
     .title-wrap {
       flex-direction: column;
       width: 100%;
@@ -1244,6 +1310,46 @@ export const TossMainStyled = styled.div`
     .title-wrap span {
       margin: 0px 0px 35px;
       font-size: 32px;
+    }
+
+    .article-year-wrap {
+      max-width: 100vw;
+      width: 100%;
+    }
+
+    .article-year {
+      padding: 0 10px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .article-year::-webkit-scrollbar {
+      display: none;
+    }
+
+    .article-year .a-year {
+      flex-shrink: 0;
+    }
+
+    .article-year .a-year:not(:first-child) {
+      margin-left: 5px;
+    }
+
+    .article-wrap {
+      padding: 0 26px;
+      text-align: left;
+    }
+
+    .article-inner li {
+      padding: 36px 2px;
+    }
+
+    .article .article-title {
+      margin-top: 8px;
+      font-size: 18px;
+      letter-spacing: -1.2px;
     }
 
     .article-inner li::after {
@@ -1554,8 +1660,9 @@ export const TossMainStyled = styled.div`
       border-radius: 1px;
       height: 2px;
       width: 83px;
-      transition: 0.2s ease;
       z-index: 1100;
+      transform: translateX(0);
+      will-change: transform;
     }
 
     .ready2 .current {
@@ -1769,27 +1876,12 @@ export const TossMainStyled = styled.div`
       display: none;
     }
 
-    .article-year div {
+    .article-year .a-year:not(:first-child) {
       margin-left: 5px;
     }
 
-    .article-year div:first-child {
-      margin-left: 0px;
-    }
-
-    .article-wrap {
-      padding: 0px 26px;
-      text-align: left;
-    }
-
-    .article-inner li {
-      padding: 36px 2px;
-    }
-
-    .article .article-title {
-      margin-top: 8px;
-      font-size: 18px;
-      letter-spacing: -1.2px;
+    .article-year .a-year {
+      flex-shrink: 0;
     }
 
     footer {
@@ -1848,6 +1940,54 @@ export const TossMainStyled = styled.div`
       display: block;
       padding-top: 3px;
       padding-bottom: 3px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .world {
+      justify-content: center;
+    }
+
+    /* 토스페이먼츠·토스인슈어런스: 본문이 길어 잘리지 않도록 */
+    .content-wrap--long {
+      height: auto;
+      min-height: 460px;
+      overflow: visible;
+    }
+
+    .content-wrap--long .image-wrap {
+      min-height: 420px;
+      overflow: visible;
+    }
+
+    .content-wrap--long .mini-text {
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+
+    .content-wrap--long .image-wrap.active {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .content-wrap--long .image-wrap.active .mini-text {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    .content-wrap--long .image-wrap.active .mini-body {
+      font-size: 14px;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .content-wrap--long .image-wrap.active .mini-banner {
+      font-size: 14px;
+      line-height: 1.4;
+      word-break: keep-all;
     }
   }
 
